@@ -23,13 +23,16 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Filters\SelectFilter;
+use Illuminate\Support\Arr;
+
 class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-squares-plus';
-
+    
     public static function form(Form $form): Form
     {
         return $form
@@ -119,6 +122,21 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
+                
+                ImageColumn::make('images') 
+                ->label('Product Image')
+                ->state(function ($record) {
+                    // Check if the images attribute is an array and not empty
+                    if (is_array($record->images) && !empty($record->images)) {
+                        // Return the first image from the array
+                        return Arr::first($record->images);
+                    }
+                    // Return null or a default placeholder if no images exist
+                    return null;
+                    
+                }),
+                    
+
                 TextColumn::make('name')
                 ->searchable(),
                 TextColumn::make('category.name')

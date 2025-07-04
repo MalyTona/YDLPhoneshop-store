@@ -18,6 +18,9 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Set;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
 class CategoryResource extends Resource
 {
@@ -63,29 +66,26 @@ class CategoryResource extends Resource
         return $table
             ->columns([
 
-                Tables\Columns\ImageColumn::make('image'),
-                    // ->disk('public')
-                    // ->label('Image')
-                    // ->circular()
-                    // ->size(50),
+                ImageColumn::make('image'),
+                    
 
 
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->searchable(),
 
                 
-                Tables\Columns\TextColumn::make('slug')
+                TextColumn::make('slug')
                     ->searchable(),
                     
 
 
-                Tables\Columns\BooleanColumn::make('is_active')
+                IconColumn::make('is_active')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
