@@ -25,9 +25,11 @@ use Illuminate\Support\Str;
 class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
-
+    protected static ?int $navigationSort = 3;
     protected static ?string $navigationIcon = 'heroicon-o-tag';
-
+  // Global Search function
+    protected static ?string $recordTitleAttribute = 'name';
+    
     public static function form(Form $form): Form
     {
         return $form
@@ -113,7 +115,10 @@ class CategoryResource extends Resource
             //
         ];
     }
-
+    public static function getGloballySearchableAttributes(): array
+        {
+            return ['name', 'slug'];
+        }
     public static function getPages(): array
     {
         return [

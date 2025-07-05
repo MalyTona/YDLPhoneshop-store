@@ -30,9 +30,10 @@ use Illuminate\Support\Arr;
 class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
-
+    protected static ?int $navigationSort = 4;
     protected static ?string $navigationIcon = 'heroicon-o-squares-plus';
-    
+    //Global search Product
+    protected static ?string $recordTitleAttribute = 'name';
     public static function form(Form $form): Form
     {
         return $form
@@ -191,6 +192,10 @@ class ProductResource extends Resource
         return [
             //
         ];
+    }
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'slug'];
     }
 
     public static function getPages(): array

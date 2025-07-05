@@ -19,11 +19,16 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Set;
 use Illuminate\Support\Str;
+
+
 class BrandResource extends Resource
 {
     protected static ?string $model = Brand::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-device-phone-mobile';
+    protected static ?int $navigationSort = 2;
+    // Global Search function
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Form $form): Form
     {
@@ -108,7 +113,7 @@ class BrandResource extends Resource
             //
         ];
     }
-
+    
     public static function getPages(): array
     {
         return [
