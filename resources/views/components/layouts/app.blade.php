@@ -13,10 +13,13 @@
          @livewireStyles
     </head>
     <body class="bg-slate-200 dark:bg-slate-700">
+        @livewire('partials.navbar')
         <main>
             {{ $slot }}
         </main>
+        @livewire('partials.footer')
         @livewireScripts
+        <!-- Javascript for dark mode toggle button -->
         <script>
             // On page load or when changing themes, best to add inline in `head` to avoid FOUC
             if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -66,5 +69,9 @@
 
             });
         </script>
+        <!-- Get Date -->
+         <script>
+             document.getElementById("year").textContent = new Date().getFullYear();
+         </script>
     </body>
 </html>
