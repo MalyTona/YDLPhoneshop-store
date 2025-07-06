@@ -5,10 +5,7 @@
     <div class="relative md:flex md:items-center md:justify-between">
       <div class="flex items-center justify-between">
         <a href="/" aria-label="Brand" class="flex items-center gap-2">
-          <img src="/images/logo.png" alt="YDLPhoneshop Logo" class="h-8 w-auto">
-          <span class="text-xl font-semibold bg-gradient-to-r from-amber-500 via-pink-500 to-red-500 bg-clip-text text-transparent">
-            YDLPhoneshop
-          </span>
+          <img src="/images/logo.png" alt="YDLPhoneshop Logo" class="h-auto w-auto">
         </a>
 
         <div class="md:hidden">
