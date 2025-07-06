@@ -13,6 +13,7 @@
          @livewireStyles
     </head>
     <body class="bg-slate-200 dark:bg-slate-700">
+        @livewire('partials.top-bar')
         @livewire('partials.navbar')
         <main>
             {{ $slot }}
