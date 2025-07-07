@@ -39,6 +39,22 @@
                             <path d="M9.996 15.785l-.414 4.06c.592 0 .85-.253 1.163-.555l2.792-2.634 5.786 4.237c1.06.583 1.812.277 2.104-.982L23.94 3.98c.388-1.54-.565-2.137-1.6-1.747L1.69 9.233c-1.52.6-1.504 1.44-.26 1.83l5.872 1.837L18.69 6.92c.623-.392 1.19-.175.723.217" />
                         </svg>
                     </a>
+                    <!-- Dark Mode Toggle -->
+                    <button
+                        id="theme-toggle"
+                        class="hover:text-amber-200 transition-colors duration-200"
+                        aria-label="Toggle Dark Mode"
+                    >
+                        <!-- Moon (for light mode) -->
+                        <svg id="theme-toggle-dark-icon" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8 8 0 1010.586 10.586z" />
+                        </svg>
+
+                        <!-- Sun (for dark mode) -->
+                        <svg id="theme-toggle-light-icon" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 2.22a1 1 0 011.42 0l.71.71a1 1 0 01-1.42 1.42l-.71-.71a1 1 0 010-1.42zM17 9a1 1 0 110 2h-1a1 1 0 110-2h1zm-2.07 6.07a1 1 0 00-1.42 1.42l.71.71a1 1 0 001.42-1.42l-.71-.71zM10 17a1 1 0 011-1h0a1 1 0 010 2h0a1 1 0 01-1-1zm-6.07-1.07a1 1 0 10-1.42 1.42l.71.71a1 1 0 001.42-1.42l-.71-.71zM3 9a1 1 0 100 2H2a1 1 0 100-2h1zm2.22-4.78a1 1 0 00-1.42-1.42l-.71.71a1 1 0 101.42 1.42l.71-.71zM10 5a5 5 0 100 10A5 5 0 0010 5z" />
+                        </svg>
+                    </button>
 
                 </div>
             </div>

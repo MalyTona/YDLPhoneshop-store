@@ -47,11 +47,13 @@ class AddressRelationManager extends RelationManager
                         'Kampong Thom' => 'Kampong Thom',
                         'Kampot' => 'Kampot',
                         'Kandal' => 'Kandal',
+                        'Kep' => 'Kep',
                         'Koh Kong' => 'Koh Kong',
                         'Kratie' => 'Kratie',
                         'Mondulkiri' => 'Mondulkiri',
                         'Oddar Meanchey' => 'Oddar Meanchey',
                         'Pailin' => 'Pailin',
+                        'Preah Sihanouk' => 'Preah Sihanouk',
                         'Preah Vihear' => 'Preah Vihear',
                         'Prey Veng' => 'Prey Veng',
                         'Pursat' => 'Pursat',
@@ -60,7 +62,7 @@ class AddressRelationManager extends RelationManager
                         'Stung Treng' => 'Stung Treng',
                         'Svay Rieng' => 'Svay Rieng',
                         'Takeo' => 'Takeo',
-                        'Tboung Khmum' => 'Tboung Khmum'
+                        'Tboung Khmum' => 'Tboung Khmum',
                     ]),
                     
                 Textarea::make('street_address')

@@ -56,7 +56,7 @@
 
     <!-- Bottom Section -->
     <div class="mt-10 border-t border-gray-300 dark:border-gray-800 pt-6 flex flex-col md:flex-row items-center justify-between">
-      <p class="text-sm text-gray-600 dark:text-gray-400">© <span id="year"></span> YDLPhoneshop. រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
+      <p class="text-sm text-gray-600 dark:text-gray-400">© <span id="year"></span> អភិវឌ្ឍគេហទំព័រអេឡិកត្រូនិកសម្រាប់ហាងទូរស័ព្ទដៃ វ៉ាយឌីអេល</p>
 
       <p class="text-sm text-gray-600 dark:text-gray-400">
         Website developed by
@@ -65,7 +65,16 @@
           target="_blank" rel="noopener">
           Maly Tona
         </a>
+        
       </p>
+      <p class="text-sm text-gray-600 dark:text-gray-400 text-left">
+          Thesis book by 
+          <a href="https://web.facebook.com/vann.den.907278"
+          class="text-green-600 hover:text-green-800 font-medium ml-1"
+          target="_blank" rel="noopener">
+          Vannden
+        </a>
+        </p>
     </div>
 
   </div>
