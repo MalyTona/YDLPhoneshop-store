@@ -36,7 +36,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl dark:text-white">
-          ម៉ាកទូរស័ព្ទពេញនិយម
+          ម៉ាកទូរស័ព្ទ<span class="text-amber-500">ពេញនិយម</span>
         </h2>
         <div class="mt-2 mb-4 h-1 w-32 mx-auto bg-gradient-to-r from-amber-400 to-blue-500 rounded-full"></div>
         <p class="max-w-2xl mx-auto text-base text-gray-600 dark:text-gray-400">
@@ -138,7 +138,7 @@
                 <img class="h-14 w-14 rounded-full object-cover" src="https://img.icons8.com/?size=100&id=ucDmdolNWVSa&format=png&color=000000" alt="Second hand Phones">
                 <div class="ms-4">
                   <h3 class="group-hover:text-amber-500 font-semibold text-gray-800 dark:text-gray-200">
-                    Mobile Phone មួយទឹក
+                    2nd Hand Mobiles
                   </h3>
                 </div>
               </div>
@@ -155,7 +155,7 @@
                 <img class="h-14 w-14 rounded-full object-cover" src="https://media.istockphoto.com/id/1066216872/vector/vector-illustration-icon-with-a-communication-concept-for-the-setting-and-repair-information.jpg?s=612x612&w=0&k=20&c=JOQDa1v_y9eiAk8i8DfL9eX_bzvXyX4KGLH2W-eYs8o=" alt="Phone Repair">
                 <div class="ms-4">
                   <h3 class="group-hover:text-amber-500 font-semibold text-gray-800 dark:text-gray-200">
-                    សេវាកម្មជួសជុល
+                    Repair Service
                   </h3>
                 </div>
               </div>
