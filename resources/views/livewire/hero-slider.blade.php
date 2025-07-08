@@ -7,20 +7,31 @@
                     <div class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center transition-all duration-500 ease-in-out {{ $currentBanner === $index ? 'opacity-100 relative z-10' : 'opacity-0 absolute inset-0 z-0 pointer-events-none' }}"
                          wire:key="banner-{{ $banner->id }}">
                         <div>
+                            <!-- Main Title with Enhanced Styling -->
                             <h1 class="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white">
-                                {{ $banner->title }}
+                                @if(str_contains($banner->title, 'YDLPhoneShop'))
+                                    {!! str_replace('YDLPhoneShop', '<span class="text-blue-600 dark:text-blue-500">YDLPhoneShop</span>', $banner->title) !!}
+                                @else
+                                    {{ $banner->title }}
+                                @endif
                             </h1>
+                            
+                            <!-- Khmer Title with Enhanced Styling -->
                             @if($banner->title_kh)
                                 <h2 class="block text-2xl font-semibold text-gray-700 sm:text-3xl lg:text-4xl mt-2 dark:text-gray-300">
                                     {{ $banner->title_kh }}
                                 </h2>
                             @endif
-                            <p class="mt-3 text-lg text-gray-800 dark:text-gray-300">
+                            
+                            <!-- Description with Enhanced Styling -->
+                            <p class="mt-3 text-lg text-gray-800 dark:text-gray-300 leading-relaxed">
                                 {{ $banner->description_kh ?? $banner->description }}
                             </p>
+                            
+                            <!-- Buttons with Enhanced Styling -->
                             <div class="mt-7 grid gap-3 w-full sm:inline-flex">
                                 @if($banner->button_url)
-                                    <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 relative z-20" 
+                                    <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 relative z-20" 
                                        href="{{ $banner->button_url }}">
                                         {{ $banner->button_text_kh ?? $banner->button_text }}
                                         <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -28,14 +39,14 @@
                                         </svg>
                                     </a>
                                 @endif
-                                <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 dark:bg-slate-800 dark:border-gray-700 dark:text-white dark:hover:bg-slate-700 relative z-20" 
+                                <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:bg-slate-800 dark:border-gray-700 dark:text-white dark:hover:bg-slate-700 dark:focus:ring-slate-600 transition-all duration-200 relative z-20" 
                                    href="https://t.me/Yoth_Dalen" target="_blank">
                                     ទំនាក់ទំនងយើង
                                 </a>
                             </div>
                         </div>
                         <div class="relative ms-4">
-                            <img class="w-full rounded-md transition-all duration-500" 
+                            <img class="w-full rounded-md transition-all duration-500 shadow-lg" 
                                  src="{{ Storage::url($banner->image_path) }}" 
                                  alt="{{ $banner->title }}">
                             <div class="absolute inset-0 -z-[1] bg-gradient-to-tr from-gray-200 via-white/0 to-white/0 w-full h-full rounded-md mt-4 -mb-4 me-4 -ms-4 lg:mt-6 lg:-mb-6 lg:me-6 lg:-ms-6 dark:from-slate-800 dark:via-slate-900/0 dark:to-slate-900/0">
@@ -49,14 +60,14 @@
             @if($banners->count() > 1)
                 <!-- Previous/Next Buttons -->
                 <button wire:click="prevSlide" 
-                        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200 z-30">
+                        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg transition-all duration-200 z-30 backdrop-blur-sm">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
                 </button>
                 
                 <button wire:click="nextSlide" 
-                        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200 z-30">
+                        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg transition-all duration-200 z-30 backdrop-blur-sm">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
@@ -66,7 +77,7 @@
                 <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
                     @foreach($banners as $index => $banner)
                         <button wire:click="goToBanner({{ $index }})" 
-                                class="w-3 h-3 rounded-full transition-all duration-200 {{ $currentBanner === $index ? 'bg-blue-600' : 'bg-white/50 hover:bg-white/80' }}">
+                                class="w-3 h-3 rounded-full transition-all duration-200 {{ $currentBanner === $index ? 'bg-blue-600 scale-110' : 'bg-white/60 hover:bg-white/90' }}">
                         </button>
                     @endforeach
                 </div>
@@ -81,16 +92,19 @@
                 }, 5000);
 
                 // Pause auto-slide on hover
-                document.querySelector('.relative.w-full').addEventListener('mouseenter', () => {
-                    clearInterval(autoSlideInterval);
-                });
+                const sliderContainer = document.querySelector('.relative.w-full.bg-gradient-to-r');
+                if (sliderContainer) {
+                    sliderContainer.addEventListener('mouseenter', () => {
+                        clearInterval(autoSlideInterval);
+                    });
 
-                // Resume auto-slide when mouse leaves
-                document.querySelector('.relative.w-full').addEventListener('mouseleave', () => {
-                    autoSlideInterval = setInterval(() => {
-                        Livewire.dispatch('nextSlide');
-                    }, 5000);
-                });
+                    // Resume auto-slide when mouse leaves
+                    sliderContainer.addEventListener('mouseleave', () => {
+                        autoSlideInterval = setInterval(() => {
+                            Livewire.dispatch('nextSlide');
+                        }, 5000);
+                    });
+                }
             });
         </script>
     @else
