@@ -2,9 +2,9 @@
     @if($banners->count() > 0)
         <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Slides Container -->
-            <div class="relative">
+            <div class="relative min-h-[400px]">
                 @foreach($banners as $index => $banner)
-                    <div class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center transition-all duration-500 ease-in-out {{ $currentBanner === $index ? 'opacity-100' : 'opacity-0 absolute inset-0' }}"
+                    <div class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center transition-all duration-500 ease-in-out {{ $currentBanner === $index ? 'opacity-100 relative z-10' : 'opacity-0 absolute inset-0 z-0 pointer-events-none' }}"
                          wire:key="banner-{{ $banner->id }}">
                         <div>
                             <h1 class="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white">
@@ -20,7 +20,7 @@
                             </p>
                             <div class="mt-7 grid gap-3 w-full sm:inline-flex">
                                 @if($banner->button_url)
-                                    <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700" 
+                                    <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 relative z-20" 
                                        href="{{ $banner->button_url }}">
                                         {{ $banner->button_text_kh ?? $banner->button_text }}
                                         <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -28,7 +28,7 @@
                                         </svg>
                                     </a>
                                 @endif
-                                <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 dark:bg-slate-800 dark:border-gray-700 dark:text-white dark:hover:bg-slate-700" 
+                                <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 dark:bg-slate-800 dark:border-gray-700 dark:text-white dark:hover:bg-slate-700 relative z-20" 
                                    href="https://t.me/Yoth_Dalen" target="_blank">
                                     ទំនាក់ទំនងយើង
                                 </a>
@@ -49,21 +49,21 @@
             @if($banners->count() > 1)
                 <!-- Previous/Next Buttons -->
                 <button wire:click="prevSlide" 
-                        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200 z-10">
+                        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200 z-30">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
                 </button>
                 
                 <button wire:click="nextSlide" 
-                        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200 z-10">
+                        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200 z-30">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </button>
 
                 <!-- Dots Indicator -->
-                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
                     @foreach($banners as $index => $banner)
                         <button wire:click="goToBanner({{ $index }})" 
                                 class="w-3 h-3 rounded-full transition-all duration-200 {{ $currentBanner === $index ? 'bg-blue-600' : 'bg-white/50 hover:bg-white/80' }}">
@@ -76,9 +76,21 @@
         <!-- Auto-slide Script -->
         <script>
             document.addEventListener('livewire:initialized', () => {
-                setInterval(() => {
+                let autoSlideInterval = setInterval(() => {
                     Livewire.dispatch('nextSlide');
                 }, 5000);
+
+                // Pause auto-slide on hover
+                document.querySelector('.relative.w-full').addEventListener('mouseenter', () => {
+                    clearInterval(autoSlideInterval);
+                });
+
+                // Resume auto-slide when mouse leaves
+                document.querySelector('.relative.w-full').addEventListener('mouseleave', () => {
+                    autoSlideInterval = setInterval(() => {
+                        Livewire.dispatch('nextSlide');
+                    }, 5000);
+                });
             });
         </script>
     @else
