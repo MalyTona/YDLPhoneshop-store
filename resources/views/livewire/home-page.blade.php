@@ -1,5 +1,5 @@
 <div>
-  <div class="w-full bg-gradient-to-r from-amber-100 to-blue-300 dark:from-slate-900 dark:to-blue-900 py-10 px-4 sm:px-6 lg:px-8 mx-auto">
+  <!-- <div class="w-full bg-gradient-to-r from-amber-100 to-blue-300 dark:from-slate-900 dark:to-blue-900 py-10 px-4 sm:px-6 lg:px-8 mx-auto">
     <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
         <div>
@@ -31,7 +31,8 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+   @livewire('hero-slider')
   <section class="bg-gray-50 dark:bg-slate-900 py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
