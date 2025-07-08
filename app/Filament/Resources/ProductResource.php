@@ -19,6 +19,7 @@ use Illuminate\Support\Str;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\TextColumn;
@@ -61,10 +62,26 @@ class ProductResource extends Resource
                             ->required()
                             ->unique(Product::class, 'slug', ignoreRecord: true),
                         
-                       MarkdownEditor::make('description')
+                       RichEditor::make('description')
                             ->columnSpanFull()
-                            ->fileAttachmentsDirectory('products'),
-                    ])->columns(2),
+                            ->fileAttachmentsDirectory('products')
+                             ->toolbarButtons([
+                                'attachFiles',
+                                'blockquote',
+                                'bold',
+                                'bulletList',
+                                'codeBlock',
+                                'h2',
+                                'h3',
+                                'italic',
+                                'link',
+                                'orderedList',
+                                'redo',
+                                'strike',
+                                'underline',
+                                'undo',
+                            ])
+                         ])->columns(2),
                        
                     // File upload for product images
                     Section::make('Product Images')->schema([

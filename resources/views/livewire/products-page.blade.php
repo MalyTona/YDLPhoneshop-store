@@ -1,314 +1,315 @@
-<div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
-  <section class="py-10 bg-gray-50 font-poppins dark:bg-gray-800 rounded-lg">
-    <div class="px-4 py-4 mx-auto max-w-7xl lg:py-6 md:px-6">
-      <div class="flex flex-wrap mb-24 -mx-3">
-        <div class="w-full pr-2 lg:w-1/4 lg:block">
-          <div class="p-4 mb-5 bg-white border border-gray-200 dark:border-gray-900 dark:bg-gray-900">
-            <h2 class="text-2xl font-bold dark:text-gray-400"> Categories</h2>
-            <div class="w-16 pb-2 mb-6 border-b border-rose-600 dark:border-gray-400"></div>
-            <ul>
-              <li class="mb-4">
-                <label for="" class="flex items-center dark:text-gray-400 ">
-                  <input type="checkbox" class="w-4 h-4 mr-2">
-                  <span class="text-lg">Smartphones</span>
-                </label>
-              </li>
-              <li class="mb-4">
-                <label for="" class="flex items-center dark:text-gray-400 ">
-                  <input type="checkbox" class="w-4 h-4 mr-2 ">
-                  <span class="text-lg">Laptops</span>
-                </label>
-              </li>
-              <li class="mb-4">
-                <label for="" class="flex items-center dark:text-gray-400">
-                  <input type="checkbox" class="w-4 h-4 mr-2">
-                  <span class="text-lg">Smartwatches</span>
-                </label>
-              </li>
-              <li class="mb-4">
-                <label for="" class="flex items-center dark:text-gray-400">
-                  <input type="checkbox" class="w-4 h-4 mr-2">
-                  <span class="text-lg">Television</span>
-                </label>
-              </li>
-            </ul>
+<div>
+  <div class="bg-gray-50 dark:bg-gray-800 min-h-screen">
+    <div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
+      
+      <!-- Page Header -->
+      <div class="mb-8">
+        <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 sm:p-8">
+          <div class="text-center">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+              ផលិតផល<span class="text-amber-500">ទាំងអស់</span>
+            </h1>
+            <div class="mt-2 mb-4 h-1 w-32 mx-auto bg-gradient-to-r from-amber-400 to-blue-500 rounded-full"></div>
+            <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              ស្វែងរកទូរស័ព្ទដៃ និងគ្រឿងបន្លាស់ពីម៉ាកល្បីៗជាច្រើន ដោយតម្លៃសមរម្យ
+            </p>
+          </div>
+        </div>
+      </div>
 
-          </div>
-          <div class="p-4 mb-5 bg-white border border-gray-200 dark:bg-gray-900 dark:border-gray-900">
-            <h2 class="text-2xl font-bold dark:text-gray-400">Brand</h2>
-            <div class="w-16 pb-2 mb-6 border-b border-rose-600 dark:border-gray-400"></div>
-            <ul>
-              <li class="mb-4">
-                <label for="" class="flex items-center dark:text-gray-300">
-                  <input type="checkbox" class="w-4 h-4 mr-2">
-                  <span class="text-lg dark:text-gray-400">Apple</span>
-                </label>
-              </li>
-              <li class="mb-4">
-                <label for="" class="flex items-center dark:text-gray-300">
-                  <input type="checkbox" class="w-4 h-4 mr-2">
-                  <span class="text-lg dark:text-gray-400">Samsung</span>
-                </label>
-              </li>
-              <li class="mb-4">
-                <label for="" class="flex items-center dark:text-gray-300">
-                  <input type="checkbox" class="w-4 h-4 mr-2">
-                  <span class="text-lg dark:text-gray-400">Nothing</span>
-                </label>
-              </li>
-              <li class="mb-4">
-                <label for="" class="flex items-center dark:text-gray-300">
-                  <input type="checkbox" class="w-4 h-4 mr-2">
-                  <span class="text-lg dark:text-gray-400">One Plus</span>
-                </label>
-              </li>
-            </ul>
-          </div>
-          <div class="p-4 mb-5 bg-white border border-gray-200 dark:bg-gray-900 dark:border-gray-900">
-            <h2 class="text-2xl font-bold dark:text-gray-400">Product Status</h2>
-            <div class="w-16 pb-2 mb-6 border-b border-rose-600 dark:border-gray-400"></div>
-            <ul>
-              <li class="mb-4">
-                <label for="" class="flex items-center dark:text-gray-300">
-                  <input type="checkbox" class="w-4 h-4 mr-2">
-                  <span class="text-lg dark:text-gray-400">In Stock</span>
-                </label>
-              </li>
-              <li class="mb-4">
-                <label for="" class="flex items-center dark:text-gray-300">
-                  <input type="checkbox" class="w-4 h-4 mr-2">
-                  <span class="text-lg dark:text-gray-400">On Sale</span>
-                </label>
-              </li>
-            </ul>
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        
+        <!-- Sidebar Filters -->
+        <div class="lg:col-span-1 space-y-6">
+          
+          <!-- Categories Filter -->
+          <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6">
+            <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">ប្រភេទ</h2>
+            <div class="w-16 h-1 bg-gradient-to-r from-amber-400 to-blue-500 rounded-full mb-6"></div>
+            <div class="space-y-3">
+              @foreach ($categories as $category)
+              <label class="flex items-center group cursor-pointer" wire:key="{{ $category->id }}">
+                <input 
+                  type="checkbox" 
+                  id="{{ $category->slug }}" 
+                  value="{{ $category->id }}" 
+                  class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                >
+                <span class="ml-3 text-gray-700 dark:text-gray-300 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                  {{ $category->name }}
+                </span>
+              </label>
+              @endforeach
+            </div>
           </div>
 
-          <div class="p-4 mb-5 bg-white border border-gray-200 dark:bg-gray-900 dark:border-gray-900">
-            <h2 class="text-2xl font-bold dark:text-gray-400">Price</h2>
-            <div class="w-16 pb-2 mb-6 border-b border-rose-600 dark:border-gray-400"></div>
-            <div>
-              <input type="range" class="w-full h-1 mb-4 bg-blue-100 rounded appearance-none cursor-pointer" max="500000" value="100000" step="100000">
-              <div class="flex justify-between ">
-                <span class="inline-block text-lg font-bold text-blue-400 ">&#8377; 1000</span>
-                <span class="inline-block text-lg font-bold text-blue-400 ">&#8377; 500000</span>
+          <!-- Brands Filter -->
+          <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6">
+            <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">ម៉ាក</h2>
+            <div class="w-16 h-1 bg-gradient-to-r from-amber-400 to-blue-500 rounded-full mb-6"></div>
+            <div class="space-y-3">
+              @foreach ($brands as $brand)
+              <label class="flex items-center group cursor-pointer" wire:key="{{ $brand->id }}">
+                <input 
+                  type="checkbox" 
+                  id="{{ $brand->slug }}" 
+                  value="{{ $brand->id }}" 
+                  class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                >
+                <span class="ml-3 text-gray-700 dark:text-gray-300 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                  {{ $brand->name }}
+                </span>
+              </label>
+              @endforeach
+            </div>
+          </div>
+
+          <!-- Product Status Filter -->
+          <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6">
+            <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">ស្ថានភាពផលិតផល</h2>
+            <div class="w-16 h-1 bg-gradient-to-r from-amber-400 to-blue-500 rounded-full mb-6"></div>
+            <div class="space-y-3">
+              <label class="flex items-center group cursor-pointer">
+                <input 
+                  type="checkbox" 
+                  class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                >
+                <span class="ml-3 text-gray-700 dark:text-gray-300 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
+                  មានស្តុក
+                </span>
+              </label>
+              <label class="flex items-center group cursor-pointer">
+                <input 
+                  type="checkbox" 
+                  class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                >
+                <span class="ml-3 text-gray-700 dark:text-gray-300 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                  កំពុងបញ្ចុះតម្លៃ
+                </span>
+              </label>
+              <label class="flex items-center group cursor-pointer">
+                <input 
+                  type="checkbox" 
+                  class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                >
+                <span class="ml-3 text-gray-700 dark:text-gray-300 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                  ផលិតផលពេញនិយម
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Price Range Filter -->
+          <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6">
+            <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">ជួរតម្លៃ</h2>
+            <div class="w-16 h-1 bg-gradient-to-r from-amber-400 to-blue-500 rounded-full mb-6"></div>
+            <div class="space-y-4">
+              <input 
+                type="range" 
+                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 slider" 
+                max="500000" 
+                value="100000" 
+                step="10000"
+              >
+              <div class="flex justify-between text-sm">
+                <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-full font-medium">
+                  $10
+                </span>
+                <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-full font-medium">
+                  $5000
+                </span>
               </div>
             </div>
           </div>
+
         </div>
-        <div class="w-full px-3 lg:w-3/4">
-          <div class="px-3 mb-4">
-            <div class="items-center justify-between hidden px-3 py-2 bg-gray-100 md:flex dark:bg-gray-900 ">
-              <div class="flex items-center justify-between">
-                <select name="" id="" class="block w-40 text-base bg-gray-100 cursor-pointer dark:text-gray-400 dark:bg-gray-900">
-                  <option value="">Sort by latest</option>
-                  <option value="">Sort by Price</option>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3 space-y-6">
+          
+          <!-- Sort and Filter Bar -->
+          <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div class="flex items-center space-x-2">
+                <span class="text-gray-600 dark:text-gray-400">បង្ហាញ</span>
+                <span class="font-semibold text-gray-900 dark:text-white">{{ $products->count() }}</span>
+                <span class="text-gray-600 dark:text-gray-400">ផលិតផល</span>
+              </div>
+              <div class="flex items-center space-x-4">
+                <label class="text-gray-600 dark:text-gray-400">តម្រៀប:</label>
+                <select class="bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 px-3 py-2">
+                  <option value="">ថ្មីបំផុត</option>
+                  <option value="">តម្លៃ: ទាបទៅខ្ពស់</option>
+                  <option value="">តម្លៃ: ខ្ពស់ទៅទាប</option>
+                  <option value="">ឈ្មោះ A-Z</option>
                 </select>
               </div>
             </div>
           </div>
-          <div class="flex flex-wrap items-center ">
 
-            <div class="w-full px-3 mb-6 sm:w-1/2 md:w-1/3">
-              <div class="border border-gray-300 dark:border-gray-700">
-                <div class="relative bg-gray-200">
-                  <a href="/products/product_one" class="">
-                    <img src="https://i.postimg.cc/hj6h6Vwv/pexels-artem-beliaikin-2292919.jpg" alt="" class="object-cover w-full h-56 mx-auto ">
-                  </a>
+          <!-- Products Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            @foreach ($products as $product)
+            <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" wire:key="{{ $product->id }}">
+              
+              <!-- Product Image -->
+              <div class="relative aspect-square bg-gray-100 dark:bg-gray-800 overflow-hidden">
+                <a href="/products/{{ $product->slug }}" wire:navigate>
+                  <img 
+                    src="{{ url('storage', $product->images[0]) }}" 
+                    alt="{{ $product->name }}" 
+                    class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    onerror="this.src='/images/placeholder-product.png'"
+                  >
+                </a>
+                
+                <!-- Badges -->
+                @if($product->on_sale)
+                <div class="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                  SALE
                 </div>
-                <div class="p-3 ">
-                  <div class="flex items-center justify-between gap-2 mb-2">
-                    <h3 class="text-xl font-medium dark:text-gray-400">
-                      Product name
-                    </h3>
+                @endif
+                
+                @if($product->is_featured)
+                <div class="absolute top-3 {{ $product->on_sale ? 'left-16' : 'left-3' }} bg-amber-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                  ⭐ HOT
+                </div>
+                @endif
+
+                <!-- Quick Actions -->
+                <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <button class="bg-white/90 dark:bg-gray-800/90 hover:bg-white dark:hover:bg-gray-800 rounded-full p-2 shadow-lg transition-colors duration-200">
+                    <svg class="w-4 h-4 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Product Info -->
+              <div class="p-4 sm:p-6">
+                <div class="mb-3">
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white line-clamp-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                    <a href="/products/{{ $product->slug }}" wire:navigate>
+                      {{ $product->name }}
+                    </a>
+                  </h3>
+                  
+                  <!-- Category & Brand -->
+                  <div class="flex items-center space-x-2 mt-2">
+                    @if($product->category)
+                    <span class="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-2 py-1 rounded-full">
+                      {{ $product->category->name }}
+                    </span>
+                    @endif
+                    @if($product->brand)
+                    <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-2 py-1 rounded-full">
+                      {{ $product->brand->name }}
+                    </span>
+                    @endif
                   </div>
-                  <p class="text-lg ">
-                    <span class="text-green-600 dark:text-green-600">$800.00</span>
-                  </p>
                 </div>
-                <div class="flex justify-center p-4 border-t border-gray-300 dark:border-gray-700">
 
-                  <a href="#" class="text-gray-500 flex items-center space-x-2 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4 bi bi-cart3 " viewBox="0 0 16 16">
-                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
-                    </svg><span>Add to Cart</span>
-                  </a>
+                <!-- Price -->
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-baseline space-x-2">
+                    <span class="text-xl font-bold text-amber-600 dark:text-amber-400">
+                      {{ Number::currency($product->price) }}
+                    </span>
+                    @if($product->on_sale)
+                    <span class="text-sm text-gray-500 line-through dark:text-gray-400">
+                      {{ Number::currency($product->price * 1.2) }}
+                    </span>
+                    @endif
+                  </div>
+                  
+                  <!-- Stock Status -->
+                  <div class="flex items-center">
+                    @if($product->in_stock)
+                    <div class="flex items-center text-green-600 dark:text-green-400">
+                      <div class="w-2 h-2 bg-green-500 rounded-full mr-1"></div>
+                      <span class="text-xs font-medium">មានស្តុក</span>
+                    </div>
+                    @else
+                    <div class="flex items-center text-red-600 dark:text-red-400">
+                      <div class="w-2 h-2 bg-red-500 rounded-full mr-1"></div>
+                      <span class="text-xs font-medium">អស់ស្តុក</span>
+                    </div>
+                    @endif
+                  </div>
+                </div>
 
+                <!-- Actions -->
+                <div class="flex space-x-2">
+                  @if($product->in_stock && $product->is_active)
+                  <button class="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0h8m-8 0a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4z"/>
+                    </svg>
+                    <span class="text-sm">បន្ថែមទៅកន្ត្រក</span>
+                  </button>
+                  @else
+                  <button class="flex-1 bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 font-medium py-2 px-4 rounded-lg cursor-not-allowed">
+                    <span class="text-sm">មិនអាចទិញបាន</span>
+                  </button>
+                  @endif
+                  
+                  <button class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 p-2 rounded-lg transition-colors duration-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
-            <div class="w-full px-3 mb-6 sm:w-1/2 md:w-1/3">
-              <div class="border border-gray-300 dark:border-gray-700">
-                <div class="relative bg-gray-200">
-                  <a href="#" class="">
-                    <img src="https://i.postimg.cc/hj6h6Vwv/pexels-artem-beliaikin-2292919.jpg" alt="" class="object-cover w-full h-56 mx-auto ">
-                  </a>
-                </div>
-                <div class="p-3 ">
-                  <div class="flex items-center justify-between gap-2 mb-2">
-                    <h3 class="text-xl font-medium dark:text-gray-400">
-                      Product name
-                    </h3>
-                  </div>
-                  <p class="text-lg ">
-                    <span class="text-green-600 dark:text-green-600">$800.00</span>
-                  </p>
-                </div>
-                <div class="flex justify-center p-4 border-t border-gray-300 dark:border-gray-700">
-
-                  <a href="#" class="text-gray-500 flex items-center space-x-2 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4 bi bi-cart3 " viewBox="0 0 16 16">
-                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
-                    </svg><span>Add to Cart</span>
-                  </a>
-
-                </div>
-              </div>
-            </div>
-            <div class="w-full px-3 mb-6 sm:w-1/2 md:w-1/3">
-              <div class="border border-gray-300 dark:border-gray-700">
-                <div class="relative bg-gray-200">
-                  <a href="#" class="">
-                    <img src="https://i.postimg.cc/hj6h6Vwv/pexels-artem-beliaikin-2292919.jpg" alt="" class="object-cover w-full h-56 mx-auto ">
-                  </a>
-                </div>
-                <div class="p-3 ">
-                  <div class="flex items-center justify-between gap-2 mb-2">
-                    <h3 class="text-xl font-medium dark:text-gray-400">
-                      Product name
-                    </h3>
-                  </div>
-                  <p class="text-lg ">
-                    <span class="text-green-600 dark:text-green-600">$800.00</span>
-                  </p>
-                </div>
-                <div class="flex justify-center p-4 border-t border-gray-300 dark:border-gray-700">
-
-                  <a href="#" class="text-gray-500 flex items-center space-x-2 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4 bi bi-cart3 " viewBox="0 0 16 16">
-                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
-                    </svg><span>Add to Cart</span>
-                  </a>
-
-                </div>
-              </div>
-            </div>
-            <div class="w-full px-3 mb-6 sm:w-1/2 md:w-1/3">
-              <div class="border border-gray-300 dark:border-gray-700">
-                <div class="relative bg-gray-200">
-                  <a href="#" class="">
-                    <img src="https://i.postimg.cc/hj6h6Vwv/pexels-artem-beliaikin-2292919.jpg" alt="" class="object-cover w-full h-56 mx-auto ">
-                  </a>
-                </div>
-                <div class="p-3 ">
-                  <div class="flex items-center justify-between gap-2 mb-2">
-                    <h3 class="text-xl font-medium dark:text-gray-400">
-                      Product name
-                    </h3>
-                  </div>
-                  <p class="text-lg ">
-                    <span class="text-green-600 dark:text-green-600">$800.00</span>
-                  </p>
-                </div>
-                <div class="flex justify-center p-4 border-t border-gray-300 dark:border-gray-700">
-
-                  <a href="#" class="text-gray-500 flex items-center space-x-2 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4 bi bi-cart3 " viewBox="0 0 16 16">
-                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
-                    </svg><span>Add to Cart</span>
-                  </a>
-
-                </div>
-              </div>
-            </div>
-            <div class="w-full px-3 mb-6 sm:w-1/2 md:w-1/3">
-              <div class="border border-gray-300 dark:border-gray-700">
-                <div class="relative bg-gray-200">
-                  <a href="#" class="">
-                    <img src="https://i.postimg.cc/hj6h6Vwv/pexels-artem-beliaikin-2292919.jpg" alt="" class="object-cover w-full h-56 mx-auto ">
-                  </a>
-                </div>
-                <div class="p-3 ">
-                  <div class="flex items-center justify-between gap-2 mb-2">
-                    <h3 class="text-xl font-medium dark:text-gray-400">
-                      Product name
-                    </h3>
-                  </div>
-                  <p class="text-lg ">
-                    <span class="text-green-600 dark:text-green-600">$800.00</span>
-                  </p>
-                </div>
-                <div class="flex justify-center p-4 border-t border-gray-300 dark:border-gray-700">
-
-                  <a href="#" class="text-gray-500 flex items-center space-x-2 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4 bi bi-cart3 " viewBox="0 0 16 16">
-                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
-                    </svg><span>Add to Cart</span>
-                  </a>
-
-                </div>
-              </div>
-            </div>
-            <div class="w-full px-3 mb-6 sm:w-1/2 md:w-1/3">
-              <div class="border border-gray-300 dark:border-gray-700">
-                <div class="relative bg-gray-200">
-                  <a href="#" class="">
-                    <img src="https://i.postimg.cc/hj6h6Vwv/pexels-artem-beliaikin-2292919.jpg" alt="" class="object-cover w-full h-56 mx-auto ">
-                  </a>
-                </div>
-                <div class="p-3 ">
-                  <div class="flex items-center justify-between gap-2 mb-2">
-                    <h3 class="text-xl font-medium dark:text-gray-400">
-                      Product name
-                    </h3>
-                  </div>
-                  <p class="text-lg ">
-                    <span class="text-green-600 dark:text-green-600">$800.00</span>
-                  </p>
-                </div>
-                <div class="flex justify-center p-4 border-t border-gray-300 dark:border-gray-700">
-
-                  <a href="#" class="text-gray-500 flex items-center space-x-2 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4 bi bi-cart3 " viewBox="0 0 16 16">
-                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
-                    </svg><span>Add to Cart</span>
-                  </a>
-
-                </div>
-              </div>
-            </div>
-
+            @endforeach
           </div>
-          <!-- pagination start -->
-          <div class="flex justify-end mt-6">
-            <nav aria-label="page-navigation">
-              <ul class="flex list-style-none">
-                <li class="page-item disabled ">
-                  <a href="#" class="relative block pointer-events-none px-3 py-1.5 mr-3 text-base text-gray-700 transition-all duration-300  rounded-md dark:text-gray-400 hover:text-gray-100 hover:bg-blue-600">Previous
-                  </a>
-                </li>
-                <li class="page-item ">
-                  <a href="#" class="relative block px-3 py-1.5 mr-3 text-base hover:text-blue-700 transition-all duration-300 hover:bg-blue-200 dark:hover:text-gray-400 dark:hover:bg-gray-700 rounded-md text-gray-100 bg-blue-400">1
-                  </a>
-                </li>
-                <li class="page-item ">
-                  <a href="#" class="relative block px-3 py-1.5 text-base text-gray-700 transition-all duration-300 dark:text-gray-400 dark:hover:bg-gray-700 hover:bg-blue-100 rounded-md mr-3  ">2
-                  </a>
-                </li>
-                <li class="page-item ">
-                  <a href="#" class="relative block px-3 py-1.5 text-base text-gray-700 transition-all duration-300 dark:text-gray-400 dark:hover:bg-gray-700 hover:bg-blue-100 rounded-md mr-3 ">3
-                  </a>
-                </li>
-                <li class="page-item ">
-                  <a href="#" class="relative block px-3 py-1.5 text-base text-gray-700 transition-all duration-300 dark:text-gray-400 dark:hover:bg-gray-700 hover:bg-blue-100 rounded-md ">Next
-                  </a>
-                </li>
-              </ul>
-            </nav>
+
+          <!-- Pagination -->
+          @if($products->hasPages())
+          <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6">
+            <div class="flex justify-center">
+              {{ $products->links() }}
+            </div>
           </div>
-          <!-- pagination end -->
+          @endif
+
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
+  <style>
+  .slider::-webkit-slider-thumb {
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #f59e0b;
+    cursor: pointer;
+    box-shadow: 0 0 2px 0 #555;
+    transition: background .15s ease-in-out;
+  }
+
+  .slider::-webkit-slider-thumb:hover {
+    background: #d97706;
+  }
+
+  .slider::-moz-range-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #f59e0b;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 2px 0 #555;
+    transition: background .15s ease-in-out;
+  }
+
+  .slider::-moz-range-thumb:hover {
+    background: #d97706;
+  }
+  </style>
 </div>
