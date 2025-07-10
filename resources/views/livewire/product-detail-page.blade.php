@@ -26,7 +26,7 @@
             <svg class="w-3 h-3 text-gray-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
-            <a wire:navigate href="/categories/{{ $product->category->slug ?? $product->category->id }}" class="ml-1 font-medium text-gray-700 hover:text-amber-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">{{ $product->category->name }}</a>
+            <a wire:navigate href="/products?selected_categories[0]={{ $product->category->id }}" class="ml-1 font-medium text-gray-700 hover:text-amber-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">{{ $product->category->name }}</a>
           </div>
         </li>
         @endif

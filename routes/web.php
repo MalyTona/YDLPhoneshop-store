@@ -6,10 +6,10 @@ use App\Livewire\Auth\Register;
 use App\Livewire\Auth\ResetPassword;
 use App\Livewire\CancelPage;
 use App\Livewire\HomePage;
-use App\Livewire\CategoryPage; 
-use App\Livewire\ProductsPage; 
-use App\Livewire\CartPage; 
-use App\Livewire\ProductDetailPage; 
+use App\Livewire\CategoryPage;
+use App\Livewire\ProductsPage;
+use App\Livewire\CartPage;
+use App\Livewire\ProductDetailPage;
 use App\Livewire\CheckoutPage;
 use App\Livewire\MyOrderDetailPage;
 use App\Livewire\MyOrdersPage;
@@ -17,14 +17,15 @@ use App\Livewire\SuccessPage;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomePage::class);
-Route::get('/categories', CategoryPage::class); 
-Route::get('/products', ProductsPage::class); 
-Route::get('/cart', CartPage::class); 
-Route::get('/products/{slug}', ProductDetailPage::class); 
+Route::get('/categories', CategoryPage::class);
+Route::get('/products', ProductsPage::class);
+Route::get('/cart', CartPage::class);
+Route::get('/products/{slug}', ProductDetailPage::class);
 
-Route::get('/checkout', CheckoutPage::class); 
-Route::get('/my-orders', MyOrdersPage::class); 
-Route::get('/my-orders/{order}', MyOrderDetailPage::class); 
+
+Route::get('/checkout', CheckoutPage::class);
+Route::get('/my-orders', MyOrdersPage::class);
+Route::get('/my-orders/{order}', MyOrderDetailPage::class);
 
 //auth route
 Route::get('/login', Login::class);
