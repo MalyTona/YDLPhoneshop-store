@@ -240,7 +240,7 @@
                 @if($product->category)
                 <div class="flex items-center text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                   <span>ប្រភេទ:</span>
-                  <a wire:navigate href="/categories/{{ $product->category->slug ?? $product->category->id }}" class="ml-1 text-amber-600 dark:text-amber-400 font-medium hover:underline">
+                  <a wire:navigate href="/products?selected_categories[0]={{ $product->category->id }}" class="ml-1 text-amber-600 dark:text-amber-400 font-medium hover:underline">
                     {{ $product->category->name }}
                   </a>
                 </div>
@@ -249,7 +249,7 @@
                 @if($product->brand)
                 <div class="flex items-center text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                   <span>ម៉ាក:</span>
-                  <a wire:navigate href="/brands/{{ $product->brand->slug ?? $product->brand->id }}" class="ml-1 text-amber-600 dark:text-amber-400 font-medium hover:underline">
+                  <a wire:navigate href="/products?selected_brands[0]={{$product->brand->id}}" class="ml-1 text-amber-600 dark:text-amber-400 font-medium hover:underline">
                     {{ $product->brand->name }}
                   </a>
                 </div>
