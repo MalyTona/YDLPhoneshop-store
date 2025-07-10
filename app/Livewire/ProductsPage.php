@@ -37,6 +37,9 @@ class ProductsPage extends Component
     #[Url()]
     public $price_range = 2000;
 
+    //sort
+    #[Url()]
+    public $sort;
 
     public function render()
     {
@@ -46,8 +49,8 @@ class ProductsPage extends Component
             $productQuery->whereIn('category_id', $this->selected_categories);
         }
         //click filter by product
-        if (!empty($this->seclected_brands)) {
-            $productQuery->whereIn('brand_id', $this->seclected_brands);
+        if (!empty($this->selected_brands)) {
+            $productQuery->whereIn('brand_id', $this->selected_brands);
         }
 
         //បើផលិតផលពេញនិយម​ filter | is_featured filter
@@ -67,6 +70,28 @@ class ProductsPage extends Component
         if ($this->price_range) {
             $productQuery->whereBetween('price', [0, $this->price_range]);
         }
+
+        // Sort
+        if ($this->sort == 'latest') {
+            $productQuery->latest(); // equivalent to orderBy('created_at', 'desc')
+        }
+
+        if ($this->sort == 'highest_price') {
+            $productQuery->orderBy('price', 'desc');
+        }
+
+        if ($this->sort == 'lowest_price') {
+            $productQuery->orderBy('price', 'asc');
+        }
+
+        if ($this->sort == 'a_z_name') {
+            $productQuery->orderBy('name', 'asc');
+        }
+
+        if ($this->sort == 'z_a_name') {
+            $productQuery->orderBy('name', 'desc');
+        }
+
         return view('livewire.products-page', [
             'products' => $productQuery->paginate(6),
             'brands' => Brand::where('is_active', 1)->get(['id', 'name', 'slug']),
