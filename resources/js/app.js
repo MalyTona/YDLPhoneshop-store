@@ -1,6 +1,8 @@
 import "./bootstrap";
 import "preline";
+import Swal from "sweetalert2";
 
+window.Swal = Swal;
 // Function to initialize all event listeners
 function initializeHeaderEvents() {
     // Mobile hamburger menu toggle functionality

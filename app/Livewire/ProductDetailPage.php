@@ -2,7 +2,10 @@
 
 namespace App\Livewire;
 
+use App\Helpers\CartManagement;
+use App\Livewire\Partials\Navbar;
 use App\Models\Product;
+use Jantinnerezo\LivewireAlert\Facades\LivewireAlert;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -10,37 +13,39 @@ use Livewire\Component;
 class ProductDetailPage extends Component
 {
     public $slug;
-
+    public $quantity = 1;
 
     public function mount($slug)
     {
         $this->slug = $slug;
     }
 
-    public function addToCart($productSlug)
+    public function increaseQty()
     {
-        $product = Product::where('slug', $productSlug)->firstOrFail();
-
-        // Check if product is available
-        if (!$product->is_active || !$product->in_stock) {
-            session()->flash('error', 'ផលិតផលនេះមិនអាចបន្ថែមទៅកន្ត្រកបានទេ។');
-            return;
+        if ($this->quantity < 99) {
+            $this->quantity++;
         }
-
-        // Add your cart logic here
-        // Example: 
-        // $cart = session()->get('cart', []);
-        // $cart[$product->id] = [
-        //     'name' => $product->name,
-        //     'price' => $product->price,
-        //     'quantity' => 1,
-        //     'image' => $product->images[0] ?? null
-        // ];
-        // session()->put('cart', $cart);
-
-        session()->flash('message', 'ផលិតផលត្រូវបានបន្ថែមទៅកន្ត្រកដោយជោគជ័យ!');
     }
+    public function DecreaseQty()
+    {
+        if ($this->quantity > 1) {
+            $this->quantity--;
+        }
+    }
+    // add product to cart method
+    public function addToCart($product_id)
+    {
+        $total_count = CartManagement::addItemsToCartWithQty($product_id, $this->quantity);
 
+        $this->dispatch('update-cart-count', total_count: $total_count)->to(Navbar::class);
+        LivewireAlert::title('បានបន្ថែមទៅកន្ត្រកដោយជោគជ័យ')
+            ->text('ផលិតផលរបស់អ្នកត្រូវបានបន្ថែមទៅក្នុងកន្ត្រក។')
+            ->position('bottom-end')
+            ->timer(3000)
+            ->success()
+            ->toast()
+            ->show();
+    }
     public function addToWishlist($productSlug)
     {
         $product = Product::where('slug', $productSlug)->firstOrFail();

@@ -2,9 +2,12 @@
 
 namespace App\Livewire;
 
+use App\Helpers\CartManagement;
+use App\Livewire\Partials\Navbar;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use Jantinnerezo\LivewireAlert\Facades\LivewireAlert;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Url;
 use Livewire\Component;
@@ -40,6 +43,21 @@ class ProductsPage extends Component
     //sort
     #[Url()]
     public $sort;
+
+    // add product to cart method
+    public function addToCart($product_id)
+    {
+        $total_count = CartManagement::addItemsToCart($product_id);
+
+        $this->dispatch('update-cart-count', total_count: $total_count)->to(Navbar::class);
+        LivewireAlert::title('បានបន្ថែមទៅកន្ត្រកដោយជោគជ័យ')
+            ->text('ផលិតផលរបស់អ្នកត្រូវបានបន្ថែមទៅក្នុងកន្ត្រក។')
+            ->position('bottom-end')
+            ->timer(3000)
+            ->success()
+            ->toast()
+            ->show();
+    }
 
     public function render()
     {

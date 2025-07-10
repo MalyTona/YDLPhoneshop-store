@@ -320,20 +320,20 @@
             <div class="flex items-center space-x-3">
               <div class="flex items-center border border-gray-300 dark:border-gray-600 rounded-lg overflow-hidden">
                 <button
-                  @click="quantity = quantity > 1 ? quantity - 1 : 1"
+                  wire:click='DecreaseQty'
                   class="px-3 sm:px-4 py-2 sm:py-3 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 transition-colors duration-200">
                   <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
                   </svg>
                 </button>
                 <input
-                  x-model="quantity"
+                  wire:model='quantity'
                   type="number"
                   min="1"
                   max="99"
                   class="w-16 sm:w-20 px-2 sm:px-4 py-2 sm:py-3 text-center border-0 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-0 focus:outline-none text-sm sm:text-base">
                 <button
-                  @click="quantity = quantity < 99 ? quantity + 1 : quantity"
+                  wire:click='increaseQty'
                   class="px-3 sm:px-4 py-2 sm:py-3 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 transition-colors duration-200">
                   <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -341,7 +341,10 @@
                 </button>
               </div>
               <span class="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
-                សរុប: <span class="font-semibold text-amber-600 dark:text-amber-400" x-text="'$' + (quantity * {{ $product->price }}).toFixed(2)"></span>
+                សរុប:
+                <span class="font-semibold text-amber-600 dark:text-amber-400">
+                  ${{ number_format($quantity * $product->price, 2) }}
+                </span>
               </span>
             </div>
           </div>
@@ -351,19 +354,25 @@
           <div class="space-y-3 sm:space-y-4">
             @if($product->in_stock && $product->is_active)
             <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <button
-                wire:click="addToCart('{{ $product->slug }}')"
-                wire:loading.attr="disabled"
-                class="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-lg sm:rounded-xl transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-amber-500/20 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 text-sm sm:text-base">
-                <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0h8m-8 0a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4z" />
-                </svg>
-                <span wire:loading.remove>បន្ថែមទៅកន្ត្រក</span>
-                <span wire:loading>កំពុងបន្ថែម...</span>
-              </button>
 
               <button
-                wire:click="addToWishlist('{{ $product->slug }}')"
+                wire:click="addToCart('{{ $product->id }}')"
+                wire:loading.attr="disabled"
+                wire:target="addToCart"
+                class="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-lg sm:rounded-xl transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-amber-500/20 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 text-sm sm:text-base">
+
+                <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0h8m-8 0a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4z" />
+                </svg>
+
+                <span wire:loading.remove wire:target="addToCart">បន្ថែមទៅកន្ត្រក</span>
+                <span wire:loading wire:target="addToCart">កំពុងបន្ថែម...</span>
+              </button>
+
+
+              <button
+                wire:click="addToWishlist('{{ $product->id }}')"
                 class="bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-900 dark:text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-lg sm:rounded-xl transition-all duration-200 flex items-center justify-center space-x-2 text-sm sm:text-base">
                 <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
