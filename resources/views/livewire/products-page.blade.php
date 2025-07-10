@@ -1,6 +1,6 @@
 <div class="bg-gray-50 dark:bg-gray-800 min-h-screen">
   <div class="w-full max-w-7xl py-10 px-4 sm:px-6 lg:px-8 mx-auto">
-    
+
     <!-- Page Header -->
     <div class="mb-8">
       <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 sm:p-8">
@@ -25,13 +25,12 @@
         <div class="grid grid-cols-2 gap-3">
           @foreach ($categories as $category)
           <label class="flex items-center group cursor-pointer" wire:key="{{ $category->id }}">
-            <input 
+            <input
               type="checkbox"
               id="{{ $category->slug }}"
               wire:model.live='selected_categories'
               value="{{ $category->id }}"
-              class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            >
+              class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
             <span class="ml-3 text-sm text-gray-700 dark:text-gray-300 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
               {{ $category->name }}
             </span>
@@ -47,13 +46,12 @@
         <div class="grid grid-cols-2 gap-3">
           @foreach ($brands as $brand)
           <label class="flex items-center group cursor-pointer" wire:key="{{ $brand->id }}">
-            <input 
+            <input
               type="checkbox"
               wire:model.live='selected_brands'
               id="{{ $brand->slug }}"
               value="{{ $brand->id }}"
-              class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            >
+              class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
             <span class="ml-3 text-sm text-gray-700 dark:text-gray-300 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
               {{ $brand->name }}
             </span>
@@ -70,37 +68,34 @@
           <div class="w-16 h-1 bg-gradient-to-r from-amber-400 to-blue-500 rounded-full mb-4"></div>
           <div class="space-y-3">
             <label for='in_stock_mobile' class="flex items-center group cursor-pointer">
-              <input 
+              <input
                 type="checkbox"
                 id='in_stock_mobile'
                 value='1'
                 wire:model.live='in_stock'
-                class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              >
+                class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
               <span class="ml-3 text-sm text-gray-700 dark:text-gray-300 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
                 មានស្តុក
               </span>
             </label>
             <label for="on_sale_mobile" class="flex items-center group cursor-pointer">
-              <input 
+              <input
                 type="checkbox"
                 id='on_sale_mobile'
                 value='1'
                 wire:model.live='on_sale'
-                class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              >
+                class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
               <span class="ml-3 text-sm text-gray-700 dark:text-gray-300 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
                 កំពុងបញ្ចុះតម្លៃ
               </span>
             </label>
             <label for="featured_mobile" class="flex items-center group cursor-pointer">
-              <input 
+              <input
                 type="checkbox"
                 id="featured_mobile"
                 wire:model.live='featured'
                 value='1'
-                class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              >
+                class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
               <span class="ml-3 text-sm text-gray-700 dark:text-gray-300 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                 ផលិតផលពេញនិយម
               </span>
@@ -113,15 +108,16 @@
           <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">ជួរតម្លៃ</h2>
           <div class="w-16 h-1 bg-gradient-to-r from-amber-400 to-blue-500 rounded-full mb-4"></div>
           <div class="space-y-4">
-            <div class="font-semibold text-center">{{ Number::currency($price_range, 'USD')}}</div>
-            <input 
+            <div class="font-semibold text-center dark:text-white">
+              {{ Number::currency($price_range, 'USD') }}
+            </div>
+            <input
               wire:model.live='price_range'
               type="range"
               class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 slider"
               max="2000"
               min="50"
-              step="10"
-            >
+              step="10">
             <div class="flex justify-between text-sm">
               <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-full font-medium">
                 {{ Number::currency(50) }}
@@ -137,10 +133,10 @@
 
     <!-- Desktop Layout (hidden on mobile) -->
     <div class="hidden lg:grid lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
-      
+
       <!-- Desktop Sidebar Filters -->
       <div class="lg:col-span-1 space-y-6">
-        
+
         <!-- Categories Filter -->
         <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6">
           <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">ប្រភេទ</h2>
@@ -148,13 +144,12 @@
           <div class="space-y-3">
             @foreach ($categories as $category)
             <label class="flex items-center group cursor-pointer" wire:key="{{ $category->id }}">
-              <input 
+              <input
                 type="checkbox"
                 id="{{ $category->slug }}_desktop"
                 wire:model.live='selected_categories'
                 value="{{ $category->id }}"
-                class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              >
+                class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
               <span class="ml-3 text-gray-700 dark:text-gray-300 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                 {{ $category->name }}
               </span>
@@ -170,13 +165,12 @@
           <div class="space-y-3">
             @foreach ($brands as $brand)
             <label class="flex items-center group cursor-pointer" wire:key="{{ $brand->id }}">
-              <input 
+              <input
                 type="checkbox"
                 wire:model.live='selected_brands'
                 id="{{ $brand->slug }}_desktop"
                 value="{{ $brand->id }}"
-                class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              >
+                class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
               <span class="ml-3 text-gray-700 dark:text-gray-300 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                 {{ $brand->name }}
               </span>
@@ -191,37 +185,34 @@
           <div class="w-16 h-1 bg-gradient-to-r from-amber-400 to-blue-500 rounded-full mb-6"></div>
           <div class="space-y-3">
             <label for='in_stock_desktop' class="flex items-center group cursor-pointer">
-              <input 
+              <input
                 type="checkbox"
                 id='in_stock_desktop'
                 value='1'
                 wire:model.live='in_stock'
-                class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              >
+                class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
               <span class="ml-3 text-gray-700 dark:text-gray-300 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
                 មានស្តុក
               </span>
             </label>
             <label for="on_sale_desktop" class="flex items-center group cursor-pointer">
-              <input 
+              <input
                 type="checkbox"
                 id='on_sale_desktop'
                 value='1'
                 wire:model.live='on_sale'
-                class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              >
+                class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
               <span class="ml-3 text-gray-700 dark:text-gray-300 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
                 កំពុងបញ្ចុះតម្លៃ
               </span>
             </label>
             <label for="featured_desktop" class="flex items-center group cursor-pointer">
-              <input 
+              <input
                 type="checkbox"
                 id="featured_desktop"
                 wire:model.live='featured'
                 value='1'
-                class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              >
+                class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
               <span class="ml-3 text-gray-700 dark:text-gray-300 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                 ផលិតផលពេញនិយម
               </span>
@@ -234,15 +225,14 @@
           <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">ជួរតម្លៃ</h2>
           <div class="w-16 h-1 bg-gradient-to-r from-amber-400 to-blue-500 rounded-full mb-6"></div>
           <div class="space-y-4">
-            <div class="font-semibold text-center">{{Number::currency($price_range,'USD')}}</div>
-            <input 
+            <div class="font-semibold text-center dark:text-white">{{Number::currency($price_range,'USD')}}</div>
+            <input
               wire:model.live='price_range'
               type="range"
               class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 slider"
               max="2000"
               min="50"
-              step="10"
-            >
+              step="10">
             <div class="flex justify-between text-sm">
               <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-full font-medium">
                 {{ Number::currency(50) }}
@@ -257,7 +247,7 @@
 
       <!-- Desktop Main Content -->
       <div class="lg:col-span-4 space-y-6">
-        
+
         <!-- Sort and Filter Bar -->
         <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -282,26 +272,25 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
           @foreach ($products as $product)
           <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" wire:key="{{ $product->id }}">
-            
+
             <!-- Product Image -->
             <div class="relative aspect-square bg-gray-100 dark:bg-gray-800 overflow-hidden">
               <a href="/products/{{ $product->slug }}" wire:navigate>
-                <img 
+                <img
                   src="{{ url('storage', $product->images[0]) }}"
                   alt="{{ $product->name }}"
                   class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
-                  onerror="this.src='/images/placeholder-product.png'"
-                >
+                  onerror="this.src='/images/placeholder-product.png'">
               </a>
-              
+
               <!-- Badges -->
               @if($product->on_sale)
               <div class="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">
                 SALE
               </div>
               @endif
-              
+
               @if($product->is_featured)
               <div class="absolute top-3 {{ $product->on_sale ? 'left-16' : 'left-3' }} bg-amber-500 text-white px-2 py-1 rounded-full text-xs font-bold">
                 ⭐ HOT
@@ -312,7 +301,7 @@
               <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <button class="bg-white/90 dark:bg-gray-800/90 hover:bg-white dark:hover:bg-gray-800 rounded-full p-2 shadow-lg transition-colors duration-200">
                   <svg class="w-4 h-4 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </button>
               </div>
@@ -326,7 +315,7 @@
                     {{ $product->name }}
                   </a>
                 </h3>
-                
+
                 <!-- Category & Brand -->
                 <div class="flex items-center space-x-2 mt-2">
                   @if($product->category)
@@ -354,7 +343,7 @@
                   </span>
                   @endif
                 </div>
-                
+
                 <!-- Stock Status -->
                 <div class="flex items-center">
                   @if($product->in_stock)
@@ -376,7 +365,7 @@
                 @if($product->in_stock && $product->is_active)
                 <button class="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0h8m-8 0a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0h8m-8 0a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4z" />
                   </svg>
                   <span class="text-sm">បន្ថែមទៅកន្ត្រក</span>
                 </button>
@@ -385,11 +374,11 @@
                   <span class="text-sm">មិនអាចទិញបាន</span>
                 </button>
                 @endif
-                
+
                 <button class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 p-2 rounded-lg transition-colors duration-200">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                   </svg>
                 </button>
               </div>
@@ -435,26 +424,25 @@
       <div class="grid grid-cols-2 gap-4 mx-2">
         @foreach ($products as $product)
         <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" wire:key="{{ $product->id }}">
-          
+
           <!-- Product Image -->
           <div class="relative aspect-square bg-gray-100 dark:bg-gray-800 overflow-hidden">
             <a href="/products/{{ $product->slug }}" wire:navigate>
-              <img 
+              <img
                 src="{{ url('storage', $product->images[0]) }}"
                 alt="{{ $product->name }}"
                 class="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform duration-300"
                 loading="lazy"
-                onerror="this.src='/images/placeholder-product.png'"
-              >
+                onerror="this.src='/images/placeholder-product.png'">
             </a>
-            
+
             <!-- Badges -->
             @if($product->on_sale)
             <div class="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">
               SALE
             </div>
             @endif
-            
+
             @if($product->is_featured)
             <div class="absolute top-2 {{ $product->on_sale ? 'left-14' : 'left-2' }} bg-amber-500 text-white px-2 py-1 rounded-full text-xs font-bold">
               ⭐ HOT
@@ -465,7 +453,7 @@
             <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <button class="bg-white/90 dark:bg-gray-800/90 hover:bg-white dark:hover:bg-gray-800 rounded-full p-1.5 shadow-lg transition-colors duration-200">
                 <svg class="w-3 h-3 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </button>
             </div>
@@ -479,7 +467,7 @@
                   {{ $product->name }}
                 </a>
               </h3>
-              
+
               <!-- Category & Brand -->
               <div class="flex flex-col space-y-1 mt-2">
                 @if($product->category)
@@ -507,7 +495,7 @@
                 </span>
                 @endif
               </div>
-              
+
               <!-- Stock Status -->
               <div class="flex items-center mt-1">
                 @if($product->in_stock)
@@ -529,7 +517,7 @@
               @if($product->in_stock && $product->is_active)
               <button class="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-3 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-1">
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0h8m-8 0a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0h8m-8 0a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4z" />
                 </svg>
                 <span class="text-xs">ទិញ</span>
               </button>
@@ -538,11 +526,11 @@
                 <span class="text-xs">អស់ស្តុក</span>
               </button>
               @endif
-              
+
               <button class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 p-2 rounded-lg transition-colors duration-200">
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
               </button>
             </div>

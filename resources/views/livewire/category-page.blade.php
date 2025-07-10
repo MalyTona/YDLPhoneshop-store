@@ -6,7 +6,7 @@
       </h2>
       <div class="mt-2 mb-4 h-1 w-32 mx-auto bg-gradient-to-r from-amber-400 to-blue-500 rounded-full"></div>
       <p class="max-w-2xl mx-auto text-base text-gray-600 dark:text-gray-400">
-        ស្វែងរកអ្វីដែលអ្នកត្រូវការបានយ៉ាងងាយស្រួល មិនថាជាទូរស័ព្ទមួយទឹកគុណភាពល្អ សេវាកម្មជួសជុល ឬគ្រឿងបន្លាស់ផ្សេងៗ។
+        ស្វែងរកអ្វីដែលអ្នកត្រូវការបានយ៉ាងងាយស្រួល មិនថាជាទូរស័ព្ទមួយទឹកគុណភាពល្អ សេវាកម្មជួសជុល ឬគ្រឿង Accessories ផ្សេងៗ។
       </p>
     </div>
 
