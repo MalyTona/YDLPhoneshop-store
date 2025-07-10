@@ -23,36 +23,36 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
- 
+
         .slider::-webkit-slider-thumb {
-      appearance: none;
-      height: 20px;
-      width: 20px;
-      border-radius: 50%;
-      background: #f59e0b;
-      cursor: pointer;
-      box-shadow: 0 0 2px 0 #555;
-      transition: background .15s ease-in-out;
-    }
+            appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #f59e0b;
+            cursor: pointer;
+            box-shadow: 0 0 2px 0 #555;
+            transition: background .15s ease-in-out;
+        }
 
-    .slider::-webkit-slider-thumb:hover {
-      background: #d97706;
-    }
+        .slider::-webkit-slider-thumb:hover {
+            background: #d97706;
+        }
 
-    .slider::-moz-range-thumb {
-      height: 20px;
-      width: 20px;
-      border-radius: 50%;
-      background: #f59e0b;
-      cursor: pointer;
-      border: none;
-      box-shadow: 0 0 2px 0 #555;
-      transition: background .15s ease-in-out;
-    }
+        .slider::-moz-range-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #f59e0b;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 2px 0 #555;
+            transition: background .15s ease-in-out;
+        }
 
-    .slider::-moz-range-thumb:hover {
-      background: #d97706;
-    }
+        .slider::-moz-range-thumb:hover {
+            background: #d97706;
+        }
     </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
@@ -65,6 +65,7 @@
         {{ $slot }}
     </main>
     @livewire('partials.footer')
+    <livewire:back-to-top />
     @livewireScripts
     <!-- Javascript for dark mode toggle button -->
     <script>
