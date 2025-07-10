@@ -33,6 +33,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->font('Noto Sans Khmer')
             ->brandLogo(asset('images/logo.png'))->brandLogoHeight(72)
+            ->favicon(asset('images/favicon-32x32.png'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
