@@ -13,8 +13,12 @@ use App\Livewire\ProductDetailPage;
 use App\Livewire\CheckoutPage;
 use App\Livewire\MyOrderDetailPage;
 use App\Livewire\MyOrdersPage;
+use App\Livewire\SearchPage;
 use App\Livewire\SuccessPage;
 use Illuminate\Support\Facades\Route;
+
+//route for search
+Route::get('/search', SearchPage::class)->name('search');
 
 Route::get('/', HomePage::class);
 Route::get('/categories', CategoryPage::class);

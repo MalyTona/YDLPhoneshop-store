@@ -33,7 +33,7 @@
                   <div class="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white dark:border-gray-800"></div>
                 </div>
                 <div class="flex-1 min-w-0">
-                  <h3 class="font-semibold text-gray-900 dark:text-white text-lg mb-1 truncate">
+                  <h3 class="font-semibold text-gray-900 dark:text-white text-lg mb-1 break-words">
                     {{ $item['name'] }}
                   </h3>
                   <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
@@ -115,7 +115,9 @@
               </svg>
             </div>
             <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Your cart is empty</h3>
-            <p class="text-gray-500 dark:text-gray-400 mb-6">Add some products to get started</p>
+            <p class="text-gray-500 dark:text-gray-400 mb-6">
+              មើលលេងៗសិនទៅ បើចូលចិត្តហើយ ចាំដាក់ចូល <span class="text-amber-500">កន្រក!</span>
+            </p>
             <a href="/products"
               class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200">
               <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
