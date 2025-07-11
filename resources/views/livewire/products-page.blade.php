@@ -399,11 +399,11 @@
           </div>
           <div class="flex items-center space-x-4">
             <label class="text-gray-600 dark:text-gray-400">តម្រៀប:</label>
-            <select class="bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 px-3 py-2">
-              <option value="">ថ្មីបំផុត</option>
-              <option value="">តម្លៃ: ទាបទៅខ្ពស់</option>
-              <option value="">តម្លៃ: ខ្ពស់ទៅទាប</option>
-              <option value="">ឈ្មោះ A-Z</option>
+            <select wire:model.live="sort" class="bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 px-3 py-2">
+              <option value="latest">ថ្មីបំផុត</option>
+              <option value="higtest_price">តម្លៃ: ខ្ពស់ទៅទាប</option>
+              <option value="lowest_price">តម្លៃ: ទាបទៅខ្ពស់</option>
+              <option value="a_z_name">ឈ្មោះ A-Z</option>
             </select>
           </div>
         </div>
@@ -504,11 +504,11 @@
             <!-- Actions -->
             <div class="flex space-x-2">
               @if($product->in_stock && $product->is_active)
-              <button class="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-3 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-1">
+              <button wire:click.prevent="addToCart({{ $product->id }})" class="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-3 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-1">
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0h8m-8 0a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4z" />
                 </svg>
-                <span class="text-xs">ទិញ</span>
+                <span wire:loading.remove wire:target='addToCart({{ $product->id }})' class="text-xs">ទិញ</span><span wire:loading wire:target='addToCart({{ $product->id }})'>កំពុងទិញ...</span>
               </button>
               @else
               <button class="flex-1 bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 font-medium py-2 px-3 rounded-lg cursor-not-allowed">
