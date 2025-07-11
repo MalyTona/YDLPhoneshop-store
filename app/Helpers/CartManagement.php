@@ -150,11 +150,17 @@ class CartManagement
         return $cart_items;
     }
 
-
-    // calculate grand total including $2 shipping fee
+    // Calculate subtotal (items only, no shipping)
+    static public function calculateSubtotal($items)
+    {
+        return array_sum(array_column($items, 'total_amount'));
+    }
+    // Calculate grand total (subtotal + shipping + tax)
     static public function calculateGrandTotal($items)
     {
-        $subtotal = array_sum(array_column($items, 'total_amount'));
-        return $subtotal + 2; // flat $2 shipping
+        $subtotal = self::calculateSubtotal($items);
+        $shipping = 2; // $2 flat shipping fee
+        $tax = 0; // No tax currently
+        return $subtotal + $shipping + $tax;
     }
 }

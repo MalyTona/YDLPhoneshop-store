@@ -1,6 +1,5 @@
 <div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
   <div class="container mx-auto px-4">
-
     {{-- Header Section --}}
     <div class="mb-8">
       <div class="flex items-center justify-between">
@@ -10,22 +9,17 @@
             {{ count($cart_items) }} {{ count($cart_items) === 1 ? 'item' : 'items' }} in your cart
           </p>
         </div>
-
       </div>
     </div>
 
     <div class="flex flex-col lg:flex-row gap-8">
-
       {{-- Cart Items Section --}}
       <div class="lg:w-2/3">
         <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
-
           @forelse ($cart_items as $item)
           <div wire:key="{{ $item['product_id'] }}"
             class="p-6 border-b border-gray-200 dark:border-gray-700 last:border-b-0 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors duration-200">
-
             <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-
               {{-- Product Image & Info --}}
               <div class="flex items-center gap-4 flex-1">
                 <div class="relative group">
@@ -38,7 +32,6 @@
                   {{-- Stock indicator --}}
                   <div class="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white dark:border-gray-800"></div>
                 </div>
-
                 <div class="flex-1 min-w-0">
                   <h3 class="font-semibold text-gray-900 dark:text-white text-lg mb-1 truncate">
                     {{ $item['name'] }}
@@ -73,11 +66,9 @@
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
                     </svg>
                   </button>
-
                   <div class="mx-3 min-w-[2rem] text-center">
                     <span class="font-semibold text-gray-900 dark:text-white">{{ $item['quantity'] }}</span>
                   </div>
-
                   <button wire:click="increaseQty({{ $item['product_id'] }})"
                     class="w-8 h-8 rounded-md flex items-center justify-center hover:bg-white dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-200">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -115,7 +106,6 @@
               </div>
             </div>
           </div>
-
           @empty
           {{-- Empty Cart State --}}
           <div class="text-center py-16">
@@ -141,7 +131,6 @@
       {{-- Order Summary Section --}}
       <div class="lg:w-1/3">
         <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 sticky top-6">
-
           {{-- Summary Header --}}
           <div class="flex items-center justify-between mb-6">
             <h2 class="text-xl font-bold text-gray-900 dark:text-white">Order Summary</h2>
@@ -152,37 +141,23 @@
           <div class="space-y-4 mb-6">
             <div class="flex justify-between items-center">
               <span class="text-gray-600 dark:text-gray-400">Subtotal</span>
-              <span class="font-semibold text-gray-900 dark:text-white">{{ Number::currency($grand_total, 'USD') }}</span>
+              <span class="font-semibold text-gray-900 dark:text-white">{{ Number::currency($subtotal, 'USD') }}</span>
             </div>
-
             <div class="flex justify-between items-center">
-              <span class="text-gray-600 dark:text-gray-400">Shipping</span>
+              <span class="text-gray-600 dark:text-gray-400">Shipping (Cambodia Local)</span>
               <span class="font-semibold text-gray-900 dark:text-white">{{ Number::currency(2, 'USD') }}</span>
             </div>
-
             <div class="flex justify-between items-center">
               <span class="text-gray-600 dark:text-gray-400">Tax</span>
               <span class="font-semibold text-gray-900 dark:text-white">{{ Number::currency(0, 'USD') }}</span>
             </div>
-
-            {{-- Discount Section --}}
-            <!-- <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
-              <div class="flex items-center gap-2 mb-2">
-                <input type="text"
-                  placeholder="Discount code"
-                  class="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                <button class="px-4 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium transition-colors duration-200">
-                  Apply
-                </button>
-              </div>
-            </div> -->
           </div>
 
           {{-- Total --}}
           <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mb-6">
             <div class="flex justify-between items-center">
               <span class="text-lg font-bold text-gray-900 dark:text-white">Total</span>
-              <span class="text-2xl font-bold text-gray-900 dark:text-white">{{ Number::currency($grand_total + 2, 'USD') }}</span>
+              <span class="text-2xl font-bold text-gray-900 dark:text-white">{{ Number::currency($grand_total, 'USD') }}</span>
             </div>
             <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Including taxes and shipping</p>
           </div>
