@@ -16,6 +16,7 @@ use App\Livewire\MyOrdersPage;
 use App\Livewire\SearchPage;
 use App\Livewire\SuccessPage;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 //route for search
 Route::get('/search', SearchPage::class)->name('search');
@@ -27,16 +28,29 @@ Route::get('/cart', CartPage::class);
 Route::get('/products/{slug}', ProductDetailPage::class);
 
 
-Route::get('/checkout', CheckoutPage::class);
-Route::get('/my-orders', MyOrdersPage::class);
-Route::get('/my-orders/{order}', MyOrderDetailPage::class);
 
-//auth route
-Route::get('/login', Login::class);
-Route::get('/register', Register::class);
-Route::get('/forgot', ForgotPassword::class);
-Route::get('/reset', ResetPassword::class);
 
-//suc and cancel route
-Route::get('/success', SuccessPage::class);
-Route::get('/cancel', CancelPage::class);
+// middleware guest
+Route::middleware('guest')->group(function () {
+    //auth route
+    Route::get('/login', Login::class)->name('login');
+    Route::get('/register', Register::class);
+    Route::get('/forgot', ForgotPassword::class);
+    Route::get('/reset', ResetPassword::class);
+});
+
+// middleware login user
+Route::middleware('auth')->group(function () {
+    Route::get('/logout', function () {
+        Auth::logout();
+        return redirect('/');
+    });
+
+    Route::get('/checkout', CheckoutPage::class);
+    Route::get('/my-orders', MyOrdersPage::class);
+    Route::get('/my-orders/{order}', MyOrderDetailPage::class);
+
+    //suc and cancel route
+    Route::get('/success', SuccessPage::class);
+    Route::get('/cancel', CancelPage::class);
+});
