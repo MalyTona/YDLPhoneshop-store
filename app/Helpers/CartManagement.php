@@ -159,7 +159,7 @@ class CartManagement
     static public function calculateGrandTotal($items)
     {
         $subtotal = self::calculateSubtotal($items);
-        $shipping = 2; // $2 flat shipping fee
+        $shipping = 1.50; // $1.50 flat shipping fee
         $tax = 0; // No tax currently
         return $subtotal + $shipping + $tax;
     }

@@ -147,7 +147,7 @@
             </div>
             <div class="flex justify-between items-center">
               <span class="text-gray-600 dark:text-gray-400">Shipping (Cambodia Local)</span>
-              <span class="font-semibold text-gray-900 dark:text-white">{{ Number::currency(2, 'USD') }}</span>
+              <span class="font-semibold text-gray-900 dark:text-white">{{ Number::currency(1.50, 'USD') }}</span>
             </div>
             <div class="flex justify-between items-center">
               <span class="text-gray-600 dark:text-gray-400">Tax</span>

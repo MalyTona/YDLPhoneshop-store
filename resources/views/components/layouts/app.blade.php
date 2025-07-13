@@ -123,6 +123,14 @@
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+    <script>
+        document.addEventListener("livewire:navigated", function() {
+            if (window.HSStaticMethods) {
+                window.HSStaticMethods.autoInit();
+            }
+        });
+    </script>
+
 </body>
 
 </html>
