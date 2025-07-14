@@ -18,9 +18,11 @@ class OrderStats extends BaseWidget
             Stat::make('ការបញ្ចាទិញបានដឹកជញ្ជូន', Order::query()->where('status', 'shipped')->count()),
             Stat::make('ការបញ្ចាទិញបានទៅដល់', Order::query()->where('status', 'delivered')->count()),
             Stat::make('បានបោះបង់ការបញ្ជាទិញ', Order::query()->where('status', 'cancelled')->count()),
-            Stat::make('មធ្យមសាច់ប្រាក់នៃការបញ្ជាទិញ (រៀល)', Number::currency(Order::query()->avg('grand_total') * 4015, 'KHR'))
+            Stat::make('សាច់ប្រាក់សរុប', Number::currency(Order::query()->sum('grand_total'), 'USD'))
+            //     Stat::make('មធ្យមសាច់ប្រាក់នៃការបញ្ជាទិញ (រៀល)', Number::currency(Order::query()->avg('grand_total') * 4015, 'KHR'))
 
-      
+
+
         ];
         // return [
         //     Stat::make('New Orders', Order::query()->where('status', 'new')->count()),
@@ -28,8 +30,9 @@ class OrderStats extends BaseWidget
         //     Stat::make('Orders Shipped', Order::query()->where('status', 'shipped')->count()),
         //     Stat::make('Orders Delivered', Order::query()->where('status', 'delivered')->count()),
         //     Stat::make('Orders Cancelled', Order::query()->where('status', 'cancelled')->count()),
-        //     Stat::make('Average Order Value', Number::currency(Order::query()->avg('grand_total'), 'USD'))
-           
+        // Stat::make('Average Order Value', Number::currency(Order::query()->avg('grand_total'), 'USD'))
+        // Stat::make('Total Revenue', Number::currency(Order::query()->sum('grand_total'), 'USD'))
+
         // ];
     }
 }
