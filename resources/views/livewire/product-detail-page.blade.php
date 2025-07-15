@@ -315,7 +315,7 @@
           @if($product->in_stock && $product->is_active)
           <div class="space-y-2 sm:space-y-3" x-data="{ quantity: 1 }">
             <label class="block text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
-              បរិមាណ
+              ចំនួន
             </label>
             <div class="flex items-center space-x-3">
               <div class="flex items-center border border-gray-300 dark:border-gray-600 rounded-lg overflow-hidden">
