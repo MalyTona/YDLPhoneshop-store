@@ -9,6 +9,8 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 use Stripe\Stripe;
 use Stripe\Checkout\Session;
+use App\Mail\OrderPlaced;
+use Illuminate\Support\Facades\Mail;
 
 #[Title('Checkout')]
 class CheckoutPage extends Component
@@ -20,6 +22,7 @@ class CheckoutPage extends Component
     public $province;
     public $street_address;
     public $payment_method;
+    public $shipping_method;
 
     public function mount()
     {
@@ -38,6 +41,7 @@ class CheckoutPage extends Component
             'province' => 'required|string',
             'street_address' => 'required|string|max:255',
             'payment_method' => 'required',
+            'shipping_method' => 'required',
 
         ]);
 
@@ -57,6 +61,25 @@ class CheckoutPage extends Component
                 'quantity' => $item['quantity'],
             ];
         }
+   
+        $shipping_cost = 1.50;
+
+       
+        $line_items[] = [
+            'price_data' => [
+                'currency' => 'usd',
+                'unit_amount' => $shipping_cost * 100,
+                'product_data' => [
+                    'name' => 'Shipping Fee',
+                ],
+            ],
+            'quantity' => 1,
+        ];
+        
+        //Calculate the correct grand total. 
+        $subtotal = CartManagement::calculateSubtotal($cart_items);
+        $grand_total = $subtotal + $shipping_cost;
+        
 
         $order = new Order();
         $order->user_id = auth()->user()->id;
@@ -66,7 +89,7 @@ class CheckoutPage extends Component
         $order->status = 'new';
         $order->currency = 'usd';
         $order->shipping_amount = 1.5;
-        $order->shipping_method = 'VET Express';
+        $order->shipping_method = $this->shipping_method;
         $order->notes = 'Order placed by ' . auth()->user()->name;
 
         $address = new Address();
@@ -99,6 +122,7 @@ class CheckoutPage extends Component
         $address->save();
         $order->items()->createMany($cart_items);
         CartManagement::clearCartItems();
+        Mail::to(request()->user())->send(new OrderPlaced($order));
         return redirect($redirect_url);
     }
     public function render()

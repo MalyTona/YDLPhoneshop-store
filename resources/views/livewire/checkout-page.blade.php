@@ -79,7 +79,21 @@
                             <div class="text-red-500 dark:text-red-400 text-sm">{{ $message }}</div>
                             @enderror
                         </div>
-
+                        
+                        <div class="mt-4">
+                            <label class="block text-gray-700 dark:text-gray-200 mb-1" for="province">
+                               ជ្រើសរើសក្រុមហ៊ុនដឹកជញ្ចួន
+                            </label>
+                            <select wire:model='shipping_method' class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-gray-200 dark:border-none @error('province') border-red-500 @enderror" id="province" name="province">
+                                <option value="" disabled selected>ជ្រើសរើសក្រុមហ៊ុនដឹកជញ្ចួន | Select Shipping Method</option>
+                                <option value="VET Express">VET Express</option>
+                                <option value="J&T Express">J&T Express</option>
+                               
+                            </select>
+                            @error('shipping_method')
+                            <div class="text-red-500 dark:text-red-400 text-sm">{{ $message }}</div>
+                            @enderror
+                        </div>
 
                         <div class="mt-4">
                             <label class="block text-gray-700 dark:text-gray-200 mb-1" for="street_address">
@@ -156,7 +170,8 @@
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                             </svg>
-                            ដាក់បញ្ជាទិញ | Place Order
+                            <span wire:loading.remove>ដាក់បញ្ជាទិញ</span> 
+                            <span wire:loading>កំពុងដាក់បញ្ជាទិញ...</span> 
                         </button>
                         <a href="/products" class="block w-full text-center py-3 px-6 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 font-medium rounded-xl transition-colors duration-200">
                             បន្តការទិញទំនិញ | Continue Shopping
