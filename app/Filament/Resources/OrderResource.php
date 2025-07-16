@@ -21,6 +21,7 @@ use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
@@ -216,6 +217,9 @@ class OrderResource extends Resource
         return $table
             ->defaultSort('created_at', 'desc')
             ->columns([
+                TextColumn::make('id')
+                    ->label('Order ID')
+                    ->searchable(),
                 TextColumn::make('user.name')
                     ->label('Customer')
                     ->searchable()
@@ -242,7 +246,7 @@ class OrderResource extends Resource
                     ->searchable()
                     ->sortable(),
 
-                // REMOVED duplicate status column
+
                 SelectColumn::make('status')
                     ->options([
                         'new' => 'New',
@@ -272,6 +276,10 @@ class OrderResource extends Resource
                     ViewAction::make(),
                     EditAction::make(),
                     DeleteAction::make(),
+                    Action::make('Download Invoice')
+                        ->icon('heroicon-o-arrow-down-tray')
+                        ->url(fn(Order $record) => route('invoice.download', $record))
+                        ->openUrlInNewTab(),
                 ])
             ])
             ->bulkActions([

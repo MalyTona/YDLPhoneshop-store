@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InvoiceController;
 use App\Livewire\Auth\ForgotPassword;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
@@ -29,7 +30,7 @@ Route::get('/cart', CartPage::class);
 Route::get('/products/{slug}', ProductDetailPage::class);
 
 
-
+Route::get('/invoice/download/{order}', [InvoiceController::class, 'download'])->name('invoice.download')->middleware('auth');
 
 // middleware guest
 Route::middleware('guest')->group(function () {

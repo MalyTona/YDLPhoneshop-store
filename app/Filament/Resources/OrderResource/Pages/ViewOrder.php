@@ -14,6 +14,10 @@ class ViewOrder extends ViewRecord
     {
         return [
             Actions\EditAction::make(),
+            Actions\Action::make('Download Invoice')
+                ->icon('heroicon-o-arrow-down-tray')
+                ->url(fn() => route('invoice.download', $this->record))
+                ->openUrlInNewTab(),
         ];
     }
 }

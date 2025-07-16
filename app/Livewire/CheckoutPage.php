@@ -12,6 +12,8 @@ use Stripe\Checkout\Session;
 use App\Mail\OrderPlaced;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\NewOrderToOwner;
+use Illuminate\Support\Facades\Notification;
 
 #[Title('Checkout')]
 class CheckoutPage extends Component
@@ -125,12 +127,24 @@ class CheckoutPage extends Component
         $order->items()->createMany($cart_items);
         CartManagement::clearCartItems();
         Mail::to(request()->user())->send(new OrderPlaced($order));
+        // ** START: SEND TELEGRAM NOTIFICATION TO SHOP OWNER **
+        try {
+            $ownerChatId = env('TELEGRAM_CHAT_ID');
+            if ($ownerChatId) {
+                Notification::route('telegram', $ownerChatId)
+                    ->notify(new NewOrderToOwner($order));
+            }
+        } catch (\Exception $e) {
+
+            logger()->error('TELEGRAM NOTIFICATION FAILED: ' . $e->getMessage());
+        }
+        // ** END: SEND TELEGRAM NOTIFICATION **
         return redirect($redirect_url);
     }
     public function render()
     {
         $cart_items = CartManagement::getCartItemsFromCookie();
-        $grand_total = CartManagement::calculateGrandTotal($cart_items) + 1.5; // Also fix display here
+        $grand_total = CartManagement::calculateGrandTotal($cart_items);
         return view('livewire.checkout-page', [
             'cart_items' => $cart_items,
             'grand_total' => $grand_total,
