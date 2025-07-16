@@ -11,6 +11,7 @@ use App\Livewire\ProductsPage;
 use App\Livewire\CartPage;
 use App\Livewire\ProductDetailPage;
 use App\Livewire\CheckoutPage;
+use App\Livewire\MyAccount;
 use App\Livewire\MyOrderDetailPage;
 use App\Livewire\MyOrdersPage;
 use App\Livewire\SearchPage;
@@ -42,6 +43,7 @@ Route::middleware('guest')->group(function () {
 // middleware login user
 Route::middleware('auth')->group(function () {
     Route::get('/logout', function () {
+
         Auth::logout();
         return redirect('/');
     });
@@ -49,7 +51,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/checkout', CheckoutPage::class);
     Route::get('/my-orders', MyOrdersPage::class);
     Route::get('/my-orders/{order_id}', MyOrderDetailPage::class)->name('my-orders.show');
-
+    Route::get('/my-account', MyAccount::class)->middleware('auth')->name('my-account');
     //suc and cancel route
     Route::get('/success', SuccessPage::class)->name('success');
     Route::get('/cancel', CancelPage::class)->name('cancel');

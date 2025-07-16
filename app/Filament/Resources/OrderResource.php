@@ -187,7 +187,16 @@ class OrderResource extends Resource
                     ->label('Customer')
                     ->searchable()
                     ->sortable(),
-
+                SelectColumn::make('status')
+                    ->options([
+                        'new' => 'New',
+                        'processing' => 'Processing',
+                        'shipped' => 'Shipped',
+                        'delivered' => 'Delivered',
+                        'cancelled' => 'Cancelled',
+                    ])
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('grand_total')
                     ->numeric()
                     ->searchable()
