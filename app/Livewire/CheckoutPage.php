@@ -11,6 +11,7 @@ use Stripe\Stripe;
 use Stripe\Checkout\Session;
 use App\Mail\OrderPlaced;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 #[Title('Checkout')]
 class CheckoutPage extends Component
@@ -61,10 +62,10 @@ class CheckoutPage extends Component
                 'quantity' => $item['quantity'],
             ];
         }
-   
+
         $shipping_cost = 1.50;
 
-       
+
         $line_items[] = [
             'price_data' => [
                 'currency' => 'usd',
@@ -75,14 +76,14 @@ class CheckoutPage extends Component
             ],
             'quantity' => 1,
         ];
-        
+
         //Calculate the correct grand total. 
         $subtotal = CartManagement::calculateSubtotal($cart_items);
         $grand_total = $subtotal + $shipping_cost;
-        
+
 
         $order = new Order();
-        $order->user_id = auth()->user()->id;
+        $order->user_id = Auth::id();
         $order->grand_total = CartManagement::calculateGrandTotal($cart_items);
         $order->payment_method = $this->payment_method;
         $order->payment_status = 'pending';
@@ -90,7 +91,7 @@ class CheckoutPage extends Component
         $order->currency = 'usd';
         $order->shipping_amount = 1.5;
         $order->shipping_method = $this->shipping_method;
-        $order->notes = 'Order placed by ' . auth()->user()->name;
+        $order->notes = 'Order placed by ' . Auth::user()->name;
 
         $address = new Address();
         $address->first_name = $this->first_name;
@@ -105,7 +106,7 @@ class CheckoutPage extends Component
             Stripe::setApiKey(env('STRIPE_SECRET'));
             $sessionCheckout = Session::create([
                 'payment_method_types' => ['card'],
-                'customer_email' => auth()->user()->email,
+                'customer_email' => Auth::user()->email,
                 'line_items' => $line_items,
                 'mode' => 'payment',
                 'success_url' => route('success') . '?session_id={CHECKOUT_SESSION_ID}',

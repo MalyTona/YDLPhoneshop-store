@@ -188,7 +188,7 @@
                     <svg class="ms-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" ...></svg>
                   </button>
                   <div class="hs-dropdown-menu hidden z-10 bg-white shadow-md rounded-lg p-2 dark:bg-gray-800 dark:border dark:border-gray-700">
-                    <a href="#" class="block px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+                    <a wire:navigate href="/my-orders" class="block px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
                       My Orders
                     </a>
                     <a href="#" class="block px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">

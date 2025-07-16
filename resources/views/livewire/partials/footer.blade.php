@@ -26,7 +26,7 @@
         <h4 class="font-semibold text-gray-800 dark:text-amber-500">ហាងរបស់យើង</h4>
         <div class="mt-3 grid space-y-3">
           <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 transition duration-300">អំពីពួកយើង</a>
-          <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 transition duration-300">ប្លក់</a>
+          <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 transition duration-300">ប្លូក</a>
           <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 transition duration-300">អតិថិជន</a>
         </div>
       </div>
