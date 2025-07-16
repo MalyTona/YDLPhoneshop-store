@@ -105,6 +105,24 @@ class OrderResource extends Resource
                                 'VET Express' => 'VET Express',
                                 'J&T Express' => 'J&T Express',
                             ]),
+                        // ADD a field for shipping amount
+                        TextInput::make('shipping_amount')
+                            ->numeric()
+                            ->required()
+                            ->default(0)
+                            ->prefix('$')
+                            ->reactive()
+                            ->afterStateUpdated(function (Get $get, Set $set) {
+                                $total = 0;
+                                $items = $get('items');
+                                if ($items) {
+                                    foreach ($items as $item) {
+                                        $total += $item['total_amount'];
+                                    }
+                                }
+                                $shipping = $get('shipping_amount') ?? 0;
+                                $set('grand_total', $total + $shipping);
+                            }),
                         Textarea::make('notes')
                             ->columnSpanFull()
                             ->placeholder('Additional notes or instructions for the order')
@@ -121,7 +139,6 @@ class OrderResource extends Resource
                                     ->disableOptionsWhenSelectedInSiblingRepeaterItems()
                                     ->columnSpan(4)
                                     ->reactive()
-
                                     ->afterStateUpdated(function ($state, Set $set) {
                                         $product = Product::find($state);
                                         $price = $product?->price ?? 0;
@@ -153,21 +170,37 @@ class OrderResource extends Resource
                                     ->prefix('$')
                                     ->columnSpan(3)
 
-                            ])->columns(12),
+                            ])->columns(12)
+                            ->reactive()
+                            ->afterStateUpdated(function (Get $get, Set $set) {
+                                $total = 0;
+                                $items = $get('items');
+                                if ($items) {
+                                    foreach ($items as $item) {
+                                        $total += $item['total_amount'];
+                                    }
+                                }
+                                $shipping = $get('shipping_amount') ?? 0;
+                                $set('grand_total', $total + $shipping);
+                            }),
 
                         Placeholder::make('grand_total_placeholder')
                             ->label('Grand Total')
                             ->content(function (Get $get, Set $set) {
                                 $total = 0;
                                 if (!$repeaters = $get('items')) {
-                                    return '$' . number_format($total, 2);
+                                    $total = 0;
+                                } else {
+                                    foreach ($repeaters as $key => $repeater) {
+                                        $total += $get("items.{$key}.total_amount") ?? 0;
+                                    }
                                 }
 
-                                foreach ($repeaters as $key => $repeater) {
-                                    $total += $get("items.{$key}.total_amount") ?? 0;
-                                }
-                                $set('grand_total', $total);
-                                return '$' . number_format($total, 2);
+                                $shipping = $get('shipping_amount') ?? 0;
+                                $grand_total = $total + $shipping;
+
+                                $set('grand_total', $grand_total);
+                                return '$' . number_format($grand_total, 2);
                             }),
 
                         Hidden::make('grand_total')
@@ -185,16 +218,6 @@ class OrderResource extends Resource
             ->columns([
                 TextColumn::make('user.name')
                     ->label('Customer')
-                    ->searchable()
-                    ->sortable(),
-                SelectColumn::make('status')
-                    ->options([
-                        'new' => 'New',
-                        'processing' => 'Processing',
-                        'shipped' => 'Shipped',
-                        'delivered' => 'Delivered',
-                        'cancelled' => 'Cancelled',
-                    ])
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('grand_total')
@@ -219,7 +242,7 @@ class OrderResource extends Resource
                     ->searchable()
                     ->sortable(),
 
-
+                // REMOVED duplicate status column
                 SelectColumn::make('status')
                     ->options([
                         'new' => 'New',
