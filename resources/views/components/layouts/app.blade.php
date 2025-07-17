@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="icon" href="/images/favicon-32x32.png">
 
     <title>{{ $title ?? 'YDLPhoneShop' }}</title>
@@ -88,7 +89,7 @@
 
         var themeToggleBtn = document.getElementById('theme-toggle');
 
-        themeToggleBtn.addEventListener('click', function() {
+        themeToggleBtn.addEventListener('click', function () {
 
             // toggle icons inside button
             themeToggleDarkIcon.classList.toggle('hidden');
@@ -124,7 +125,7 @@
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
     <script>
-        document.addEventListener("livewire:navigated", function() {
+        document.addEventListener("livewire:navigated", function () {
             if (window.HSStaticMethods) {
                 window.HSStaticMethods.autoInit();
             }

@@ -51,7 +51,8 @@
         <div class="grow">
           <p class="text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400">Order Date</p>
           <p class="mt-1 text-lg font-semibold text-slate-800 dark:text-slate-200">
-            {{ $order->created_at->format('d-m-Y') }}</p>
+            {{ $order->created_at->format('d-m-Y') }}
+          </p>
         </div>
       </div>
     </div>
@@ -165,16 +166,19 @@
           <tr wire:key="{{ $item->id }}"
           class="bg-white dark:bg-slate-800/50 border-b dark:border-slate-700 hover:bg-slate-50/50 dark:hover:bg-slate-700/50">
           <th scope="row" class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">
-            <div class="flex items-center gap-4">
-            <img class="h-16 w-16 rounded-md object-cover" src="{{ url('storage', $item->product->images[0])}}"
-              alt="{{$item->product->name}}">
-            <span>{{$item->product->name}}</span>
+            <div class="flex flex-col sm:flex-row sm:items-center gap-4 w-full max-w-[200px] sm:max-w-none">
+            <img class="h-16 w-16 rounded-md object-cover shrink-0"
+              src="{{ url('storage', $item->product->images[0]) }}" alt="{{$item->product->name}}">
+            <span class="break-words whitespace-normal text-sm sm:text-base leading-snug">
+              {{$item->product->name}}
+            </span>
             </div>
           </th>
           <td class="px-6 py-4">{{ Number::currency($item->unit_amount, 'USD')}}</td>
           <td class="px-6 py-4 text-center">{{$item->quantity}}</td>
           <td class="px-6 py-4 text-right font-semibold text-slate-800 dark:text-slate-200">
-            {{Number::currency($item->total_amount, 'USD')}}</td>
+            {{Number::currency($item->total_amount, 'USD')}}
+          </td>
           </tr>
         @endforeach
             </tbody>

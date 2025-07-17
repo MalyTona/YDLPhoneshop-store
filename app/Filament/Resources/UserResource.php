@@ -22,50 +22,51 @@ class UserResource extends Resource
     // Global Search function
     protected static ?string $recordTitleAttribute = 'name';
 
- public static function form(Form $form): Form
-{
-    return $form->schema([
-        Forms\Components\TextInput::make('name')
-            ->required(),
+    public static function form(Form $form): Form
+    {
+        return $form->schema([
+            Forms\Components\TextInput::make('name')
+                ->required(),
 
-        Forms\Components\TextInput::make('email')
-            ->label('Email Address')
-            ->email()
-            ->maxLength(255)
-            ->unique(ignoreRecord: true)
-            ->required(),
+            Forms\Components\TextInput::make('email')
+                ->label('Email Address')
+                ->email()
+                ->maxLength(255)
+                ->unique(ignoreRecord: true)
+                ->required(),
 
-        Forms\Components\DateTimePicker::make('email_verified_at')
-            ->label('Email Verified At')
-            ->default(now()),
+            Forms\Components\DateTimePicker::make('email_verified_at')
+                ->label('Email Verified At')
+                ->default(now()),
 
-        Forms\Components\TextInput::make('password')
-            ->password()
-            ->dehydrated(fn ($state) => filled($state))
-            ->required(fn (string $operation): bool => $operation === 'create')
-    ]);
-}
+            Forms\Components\TextInput::make('password')
+                ->password()
+                ->dehydrated(fn($state) => filled($state))
+                ->required(fn(string $operation): bool => $operation === 'create')
+        ]);
+    }
 
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('created_at', 'desc')
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                   
+
                 Tables\Columns\TextColumn::make('email')
                     ->label('Email Address')
                     ->searchable(),
-                   
+
                 Tables\Columns\TextColumn::make('email_verified_at'),
-                
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable(),
-                
+
             ])
             ->filters([
                 //
