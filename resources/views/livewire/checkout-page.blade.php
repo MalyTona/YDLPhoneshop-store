@@ -130,7 +130,7 @@
                                 for="hosting-small">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">
-                                        បាកង | Bakong
+                                        ជាមួយម្ចាស់ហាងផ្ទាល់
                                     </div>
                                 </div>
                                 <svg aria-hidden="true" class="w-5 h-5 ms-3 rtl:rotate-180" fill="none"

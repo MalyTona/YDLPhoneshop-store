@@ -296,18 +296,18 @@
           <!-- Product Description -->
           @if($product->description)
         <div class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-4 max-w-none
-              [&>h1]:text-2xl [&>h1]:font-bold [&>h1]:text-gray-900 [&>h1]:dark:text-white [&>h1]:mb-4
-              [&>h2]:text-xl [&>h2]:font-semibold [&>h2]:text-gray-900 [&>h2]:dark:text-white [&>h2]:mb-3
-              [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:text-gray-900 [&>h3]:dark:text-white [&>h3]:mb-2
-              [&>p]:text-gray-700 [&>p]:dark:text-gray-300 [&>p]:mb-4
-              [&>a]:text-amber-600 [&>a]:dark:text-amber-400 [&>a]:underline [&>a]:font-medium
-              [&>strong]:text-gray-900 [&>strong]:dark:text-white [&>strong]:font-semibold
-              [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:space-y-1 [&_ul]:text-gray-700 [&_ul]:dark:text-gray-300
-              [&_ol]:list-decimal [&_ol]:ml-6 [&_ol]:space-y-1 [&_ol]:text-gray-700 [&_ol]:dark:text-gray-300
-              [&_li]:text-gray-700 [&_li]:dark:text-gray-300 [&_li]:ml-0
-              [&>blockquote]:border-l-4 [&>blockquote]:border-amber-500 [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-600 [&>blockquote]:dark:text-gray-400
-              [&>code]:bg-gray-100 [&>code]:dark:bg-gray-800 [&>code]:px-1 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:text-gray-800 [&>code]:dark:text-gray-200
-              [&_img]:max-w-full [&_img]:h-auto [&_img]:rounded-lg [&_img]:my-4">
+          [&>h1]:text-2xl [&>h1]:font-bold [&>h1]:text-gray-900 [&>h1]:dark:text-white [&>h1]:mb-4
+          [&>h2]:text-xl [&>h2]:font-semibold [&>h2]:text-gray-900 [&>h2]:dark:text-white [&>h2]:mb-3
+          [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:text-gray-900 [&>h3]:dark:text-white [&>h3]:mb-2
+          [&>p]:text-gray-700 [&>p]:dark:text-gray-300 [&>p]:mb-4
+          [&>a]:text-amber-600 [&>a]:dark:text-amber-400 [&>a]:underline [&>a]:font-medium
+          [&>strong]:text-gray-900 [&>strong]:dark:text-white [&>strong]:font-semibold
+          [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:space-y-1 [&_ul]:text-gray-700 [&_ul]:dark:text-gray-300
+          [&_ol]:list-decimal [&_ol]:ml-6 [&_ol]:space-y-1 [&_ol]:text-gray-700 [&_ol]:dark:text-gray-300
+          [&_li]:text-gray-700 [&_li]:dark:text-gray-300 [&_li]:ml-0
+          [&>blockquote]:border-l-4 [&>blockquote]:border-amber-500 [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-600 [&>blockquote]:dark:text-gray-400
+          [&>code]:bg-gray-100 [&>code]:dark:bg-gray-800 [&>code]:px-1 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:text-gray-800 [&>code]:dark:text-gray-200
+          [&_img]:max-w-full [&_img]:h-auto [&_img]:rounded-lg [&_img]:my-4">
         {!! $product->description !!}
         </div>
       @endif
@@ -396,14 +396,14 @@
         </div>
 
         <!-- Contact for Purchase Button -->
-        <a href="https://t.me/Yoth_Dalen" target="_blank"
+        {{-- <a href="https://t.me/Yoth_Dalen" target="_blank"
           class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-lg sm:rounded-xl transition-all duration-200 flex items-center justify-center space-x-2 text-sm sm:text-base">
           <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
           <path
             d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
           </svg>
           <span>ទំនាក់ទំនងដើម្បីទិញ</span>
-        </a>
+        </a> --}}
       @else
         <div class="text-center py-6 sm:py-8">
           <p class="text-gray-500 dark:text-gray-400 mb-4 text-sm sm:text-base">
