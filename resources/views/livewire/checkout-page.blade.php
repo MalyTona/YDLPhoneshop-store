@@ -128,10 +128,76 @@
                             <label
                                 class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-400 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                                 for="hosting-small">
-                                <div class="block">
+                                <div x-data="{ tooltip: false }" class="relative flex items-center">
+
                                     <div class="w-full text-lg font-semibold">
-                                        ផ្ទេរប្រាក់តាម(ABA, ACLEDA)
+                                        ផ្ទេរប្រាក់តាម (ABA, ACLEDA)
                                     </div>
+
+                                    <div @mouseenter="tooltip = true" @mouseleave="tooltip = false"
+                                        class="ml-2 cursor-pointer">
+                                        <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                        </svg>
+                                    </div>
+
+                                    <div x-show="tooltip" x-transition:enter="transition ease-out duration-200"
+                                        x-transition:enter-start="opacity-0 translate-y-2"
+                                        x-transition:enter-end="opacity-100 translate-y-0"
+                                        x-transition:leave="transition ease-in duration-150"
+                                        x-transition:leave-start="opacity-100 translate-y-0"
+                                        x-transition:leave-end="opacity-0 translate-y-2" style="display: none;" class="absolute z-10 w-72 p-3 -top-4 left-1/2 -translate-x-1/2 mt-[-125%] text-sm font-normal rounded-lg shadow-lg
+                bg-white text-gray-900 border border-gray-200
+                dark:bg-gray-800 dark:text-white dark:border-gray-700">
+
+                                        <div
+                                            class="font-semibold mb-2 text-center border-b pb-2 border-gray-200 dark:border-gray-600">
+                                            ដំណើរការទូទាត់
+                                            <div class="text-xs font-normal text-gray-500 dark:text-gray-300">Payment
+                                                Process</div>
+                                        </div>
+
+                                        <ul class="space-y-2 text-left text-gray-700 dark:text-gray-300">
+                                            <li class="flex items-start">
+                                                <span class="mr-2 text-gray-500 dark:text-gray-400">1.</span>
+                                                <div>
+                                                    បញ្ជាទិញទំនិញរបស់អ្នក
+                                                    <div class="text-xs text-gray-500 dark:text-gray-400">Place your
+                                                        order</div>
+                                                </div>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="mr-2 text-gray-500 dark:text-gray-400">2.</span>
+                                                <div>
+                                                    យើងនឹងទាក់ទងដើម្បីបញ្ជាក់
+                                                    <div class="text-xs text-gray-500 dark:text-gray-400">We will
+                                                        contact you to confirm</div>
+                                                </div>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="mr-2 text-gray-500 dark:text-gray-400">3.</span>
+                                                <div>
+                                                    ទទួលបានព័ត៌មានបង់ប្រាក់
+                                                    <div class="text-xs text-gray-500 dark:text-gray-400">Receive
+                                                        payment details</div>
+                                                </div>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="mr-2 text-gray-500 dark:text-gray-400">4.</span>
+                                                <div>
+                                                    បញ្ចប់ការផ្ទេរប្រាក់
+                                                    <div class="text-xs text-gray-500 dark:text-gray-400">Complete the
+                                                        bank transfer</div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div
+                                            class="absolute bottom-[-5px] left-1/2 -translate-x-1/2 w-0 h-0 border-x-8 border-x-transparent border-t-8 border-t-white dark:border-t-gray-800">
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <svg aria-hidden="true" class="w-5 h-5 ms-3 rtl:rotate-180" fill="none"
                                     viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">

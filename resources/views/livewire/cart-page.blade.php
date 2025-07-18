@@ -227,11 +227,11 @@
               </div>
             </div>
             <div class="text-xs text-center text-gray-500 dark:text-gray-400 mt-4">
-              <strong>For Direct Bank Transfer:</strong> We will contact you shortly after you place your order to
-              confirm and provide payment details.
-              <br>
               <strong>សម្រាប់ការផ្ទេរប្រាក់:</strong> យើងនឹងទាក់ទងអ្នកបន្ទាប់ពីការបញ្ជាទិញដើម្បីបញ្ជាក់
               និងផ្តល់ព័ត៌មានសម្រាប់ការបង់ប្រាក់។
+              <br>
+              <strong>For Direct Bank Transfer:</strong> We will contact you shortly after you place your order to
+              confirm and provide payment details.
             </div>
           </div>
         </div>
