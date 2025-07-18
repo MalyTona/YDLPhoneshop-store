@@ -130,7 +130,7 @@
                                 for="hosting-small">
                                 <div class="block">
                                     <div class="w-full text-lg font-semibold">
-                                        ជាមួយម្ចាស់ហាងផ្ទាល់
+                                        ផ្ទេរប្រាក់តាម(ABA, ACLEDA)
                                     </div>
                                 </div>
                                 <svg aria-hidden="true" class="w-5 h-5 ms-3 rtl:rotate-180" fill="none"
@@ -201,7 +201,7 @@
                         </button>
                         <a href="/products"
                             class="block w-full text-center py-3 px-6 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 font-medium rounded-xl transition-colors duration-200">
-                            បន្តការទិញទំនិញ | Continue Shopping
+                            បន្តការទិញទំនិញ
                         </a>
                     </div>
 
