@@ -41,7 +41,7 @@ class ProductResource extends Resource
             ->schema([
                 Group::make()->schema([
                     Section::make('Product Details')->schema([
-                       TextInput::make('name')
+                        TextInput::make('name')
                             ->required()
                             ->maxLength(255)
                             ->live(onBlur: true)
@@ -50,22 +50,22 @@ class ProductResource extends Resource
                                 if ($operation !== 'create') {
                                     return;
                                 }
-                               
+
                                 // (បម្លែងឈ្មោះផលិតផលឲ្យសមរម្យសម្រាប់ URL)
                                 $set('slug', Str::slug($state));
                             }),
-                        
-                       TextInput::make('slug')
+
+                        TextInput::make('slug')
                             ->maxLength(255)
                             ->disabled()
                             ->dehydrated()
                             ->required()
                             ->unique(Product::class, 'slug', ignoreRecord: true),
-                        
-                       RichEditor::make('description')
+
+                        RichEditor::make('description')
                             ->columnSpanFull()
                             ->fileAttachmentsDirectory('products')
-                             ->toolbarButtons([
+                            ->toolbarButtons([
                                 'attachFiles',
                                 'blockquote',
                                 'bold',
@@ -81,8 +81,8 @@ class ProductResource extends Resource
                                 'underline',
                                 'undo',
                             ])
-                         ])->columns(2),
-                       
+                    ])->columns(2),
+
                     // File upload for product images
                     Section::make('Product Images')->schema([
                         FileUpload::make('images')
@@ -91,90 +91,90 @@ class ProductResource extends Resource
                             ->maxFiles(5)
                             ->reorderable(),
                     ])
-                    ])->columnSpan(2),
+                ])->columnSpan(2),
 
 
-                    Group::make()->schema([
-                        Section::make('Price')->schema([
-                            TextInput::make('price')
+                Group::make()->schema([
+                    Section::make('Price')->schema([
+                        TextInput::make('price')
                             ->numeric()
                             ->required()
                             ->prefix('$')
-                        ]),
+                    ]),
 
-                        Section::make('Associated Categories')->schema([
-                            // Category association
-                        Select::make('category_id') 
-                            ->relationship('category', 'name') 
+                    Section::make('Associated Categories')->schema([
+                        // Category association
+                        Select::make('category_id')
+                            ->relationship('category', 'name')
                             ->searchable()
                             ->preload()
                             ->required(),
-                            // Brand association
-                        Select::make('brand_id') 
-                            ->relationship('brand', 'name') 
+                        // Brand association
+                        Select::make('brand_id')
+                            ->relationship('brand', 'name')
                             ->searchable()
                             ->preload()
                             ->required(),
-                        ]),
-                        Section::make('Status')->schema([
-                            Toggle::make('in_stock')
-                                ->required()
-                                ->default(true),
-                            
-                            Toggle::make('is_active')
-                                ->required()
-                                ->default(true),
+                    ]),
+                    Section::make('Status')->schema([
+                        Toggle::make('in_stock')
+                            ->required()
+                            ->default(true),
 
-                            Toggle::make('is_featured')
-                                ->required(),
-                            
-                            Toggle::make('on_sale')
-                                ->required(),
-                              
-                        ]),
-                    ])->columnSpan(1)
+                        Toggle::make('is_active')
+                            ->required()
+                            ->default(true),
+
+                        Toggle::make('is_featured')
+                            ->required(),
+
+                        Toggle::make('on_sale')
+                            ->required(),
+
+                    ]),
+                ])->columnSpan(1)
             ])->columns(3);
     }
 
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('created_at', 'desc')
             ->columns([
-                
-                ImageColumn::make('images') 
-                ->label('Product Image')
-                ->state(function ($record) {
-                    // Check if the images attribute is an array and not empty
-                    if (is_array($record->images) && !empty($record->images)) {
-                        // Return the first image from the array
-                        return Arr::first($record->images);
-                    }
-                    // Return null or a default placeholder if no images exist
-                    return null;
-                    
-                }),
-                    
+
+                ImageColumn::make('images')
+                    ->label('Product Image')
+                    ->state(function ($record) {
+                        // Check if the images attribute is an array and not empty
+                        if (is_array($record->images) && !empty($record->images)) {
+                            // Return the first image from the array
+                            return Arr::first($record->images);
+                        }
+                        // Return null or a default placeholder if no images exist
+                        return null;
+                    }),
+
 
                 TextColumn::make('name')
-                ->searchable(),
+                    ->searchable(),
                 TextColumn::make('category.name')
-                ->searchable()
-                ->sortable(),
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('brand.name')
-                ->searchable()
-                ->sortable(),
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('price')
-                ->money('USD')
-                ->sortable(),
-               
+                    ->money('USD')
+                    ->sortable(),
+
                 IconColumn::make('is_featured')
-                ->boolean(),
+                    ->boolean(),
                 IconColumn::make('on_sale')
-                ->boolean(),
+                    ->boolean(),
                 IconColumn::make('in_stock')
-                ->boolean(),
+                    ->boolean(),
                 IconColumn::make('is_active')
-                ->boolean(),
+                    ->boolean(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -182,16 +182,16 @@ class ProductResource extends Resource
                 TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),    
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 SelectFIlter::make('category')
-                    ->relationship('category', 'name'),    
+                    ->relationship('category', 'name'),
                 SelectFIlter::make('brand')
-                    ->relationship('brand', 'name'),              
+                    ->relationship('brand', 'name'),
             ])
             ->actions([
-                 Tables\Actions\ActionGroup::make([
+                Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make(),
                     Tables\Actions\EditAction::make(),
                     Tables\Actions\DeleteAction::make(),
