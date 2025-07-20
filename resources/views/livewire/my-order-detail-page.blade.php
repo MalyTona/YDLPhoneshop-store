@@ -211,6 +211,17 @@
           <span
             class="font-semibold text-lg text-slate-800 dark:text-slate-200">{{ Number::currency($order->grand_total, 'USD') }}</span>
         </div>
+        <div class="mt-6">
+          <button wire:click="downloadInvoice"
+            class="w-full bg-green-600 text-white py-2.5 px-4 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 dark:focus:ring-offset-slate-900 transition flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download Invoice
+          </button>
+        </div>
       </div>
       <div class="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm p-6">
         <h2 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Shipping Address</h2>

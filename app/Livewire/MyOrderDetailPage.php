@@ -3,9 +3,12 @@
 namespace App\Livewire;
 
 use App\Models\Order;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 use Illuminate\Support\Facades\Auth;
+
+
 
 #[Title('Order Detail')]
 class MyOrderDetailPage extends Component
@@ -31,7 +34,23 @@ class MyOrderDetailPage extends Component
         $this->subtotal = $subtotal;
         $this->grand_total = $this->order->grand_total;
     }
+    public function downloadInvoice()
+    {
+        // Ensure the user is authorized to download this invoice
+        if ($this->order->user_id !== auth()->id()) {
+            abort(403);
+        }
 
+        $data = ['order' => $this->order];
+
+        // Load the view and generate the PDF
+        $pdf = FacadePdf::loadView('invoices.invoice', $data);
+
+        // Download the PDF
+        return response()->streamDownload(function () use ($pdf) {
+            echo $pdf->output();
+        }, 'invoice-' . $this->order->id . '.pdf');
+    }
     public function render()
     {
         // Pass the loaded data to the view
