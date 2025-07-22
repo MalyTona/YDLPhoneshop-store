@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\InvoiceController;
+use App\Livewire\AboutPage;
 use App\Livewire\Auth\ForgotPassword;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
@@ -39,6 +40,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/register', Register::class);
     Route::get('/forgot', ForgotPassword::class)->name('password.request');
     Route::get('/reset/{token}', ResetPassword::class)->name('password.reset');
+    Route::get('/about-us', AboutPage::class)->name('about');
 });
 
 // middleware login user

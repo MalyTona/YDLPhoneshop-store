@@ -55,7 +55,7 @@ class OrderResource extends Resource
                         Select::make('payment_method')
                             ->options([
                                 'stripe' => 'Stripe',
-                                'bakong' => 'Bakong',
+                                'bakong' => 'Direct Bank Transfer',
                             ])
                             ->required(),
 
