@@ -38,6 +38,9 @@ class UserResource extends Resource
                 ->maxLength(255)
                 ->unique(ignoreRecord: true)
                 ->required(),
+            Forms\Components\TextInput::make('phone')
+                ->label('Phone Number')
+                ->tel(),
 
             Forms\Components\DateTimePicker::make('email_verified_at')
                 ->label('Email Verified At')
@@ -61,7 +64,8 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('email')
                     ->label('Email Address')
                     ->searchable(),
-
+                Tables\Columns\TextColumn::make('phone')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('email_verified_at'),
 
                 Tables\Columns\TextColumn::make('created_at')
@@ -98,7 +102,7 @@ class UserResource extends Resource
 
     public static function getGloballySearchableAttributes(): array
     {
-        return ['name', 'email'];
+        return ['name', 'email', 'phone'];
     }
     public static function getPages(): array
     {

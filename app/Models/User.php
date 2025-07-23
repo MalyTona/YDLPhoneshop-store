@@ -25,6 +25,7 @@ class User extends Authenticatable implements FilamentUser
         'email',
         'email_verified_at',
         'password',
+        'phone',
     ];
 
     /**
@@ -57,6 +58,7 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return $this->email == 'admin@gmail.com';
+        // return $this->email == 'admin@gmail.com';
+        return $this->email === 'admin@gmail.com';
     }
 }

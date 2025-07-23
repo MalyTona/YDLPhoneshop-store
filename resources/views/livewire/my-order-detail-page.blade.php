@@ -5,7 +5,7 @@
   --}}
 
   <div class="flex justify-between items-center mb-8">
-    <h1 class="text-4xl font-bold text-slate-800 dark:text-slate-200 tracking-tight">Order Details</h1>
+    <h1 class="text-4xl font-bold text-slate-800 dark:text-slate-200 tracking-tight">ព័ត៌មានលម្អិតអំពីការបញ្ជាទិញ</h1>
     <span class="text-lg font-medium text-slate-500 dark:text-slate-400">Order #{{ $order->id }}</span>
   </div>
 
@@ -188,7 +188,7 @@
     </div>
     <div class="lg:w-1/3 flex flex-col gap-8">
       <div class="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm p-6">
-        <h2 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Summary</h2>
+        <h2 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">សង្ខេប</h2>
         <div class="space-y-3 text-slate-600 dark:text-slate-300">
           <div class="flex justify-between">
             <span>Subtotal</span>

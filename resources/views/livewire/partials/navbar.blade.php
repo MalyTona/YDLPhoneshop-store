@@ -185,15 +185,15 @@
             class="hs-dropdown-menu hidden z-10 bg-white shadow-md rounded-lg p-2 dark:bg-gray-800 dark:border dark:border-gray-700">
             <a wire:navigate href="/my-orders"
               class="block px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
-              My Orders
+              ការបញ្ជាទិញរបស់ខ្ញុំ
             </a>
             <a wire:navigate href="/my-account"
               class="block px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
-              My Account
+              គណនីរបស់ខ្ញុំ
             </a>
             <a href="/logout"
               class="block px-3 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
-              Logout
+              ចាក់ចេញ
             </a>
 
             </div>

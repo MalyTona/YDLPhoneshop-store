@@ -32,7 +32,7 @@ Route::get('/products/{slug}', ProductDetailPage::class);
 
 
 Route::get('/invoice/download/{order}', [InvoiceController::class, 'download'])->name('invoice.download')->middleware('auth');
-
+Route::get('/about-us', AboutPage::class)->name('about');
 // middleware guest
 Route::middleware('guest')->group(function () {
     //auth route
@@ -40,7 +40,6 @@ Route::middleware('guest')->group(function () {
     Route::get('/register', Register::class);
     Route::get('/forgot', ForgotPassword::class)->name('password.request');
     Route::get('/reset/{token}', ResetPassword::class)->name('password.reset');
-    Route::get('/about-us', AboutPage::class)->name('about');
 });
 
 // middleware login user

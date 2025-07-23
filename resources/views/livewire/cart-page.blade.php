@@ -4,7 +4,7 @@
     <div class="mb-8">
       <div class="flex items-center justify-between">
         <div>
-          <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Shopping Cart</h1>
+          <h1 class="text-3xl font-bold text-gray-900 dark:text-white">កន្ត្រកទំនិញ</h1>
           <p class="text-gray-600 dark:text-gray-400 mt-1">
             {{ count($cart_items) }} {{ count($cart_items) === 1 ? 'item' : 'items' }} in your cart
           </p>
@@ -149,7 +149,7 @@
           class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 sticky top-6">
           {{-- Summary Header --}}
           <div class="flex items-center justify-between mb-6">
-            <h2 class="text-xl font-bold text-gray-900 dark:text-white">Order Summary</h2>
+            <h2 class="text-xl font-bold text-gray-900 dark:text-white">សង្ខេបការបញ្ជាទិញ</h2>
             <span class="text-sm text-gray-500 dark:text-gray-400">{{ count($cart_items) }} items</span>
           </div>
 

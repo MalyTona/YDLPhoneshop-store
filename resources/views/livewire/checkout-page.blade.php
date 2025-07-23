@@ -107,16 +107,23 @@
                         </div>
 
                         <div class="mt-4">
-                            <label class="block text-gray-700 dark:text-gray-200 mb-1" for="street_address">
-                                អាសយដ្ឋានផ្លូវ | Street Address
+                            <label for="street_address"
+                                class="block font-medium text-sm text-gray-700 dark:text-gray-300 mb-2">
+                                ទីតាំងដឹកជញ្ជូន
                             </label>
-                            <textarea wire:model="street_address"
-                                class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-gray-200 dark:border-none @error('street_address') border-red-500 @enderror"
-                                id="street_address" name="street_address" rows="3"></textarea>
+                            <textarea wire:model="street_address" id="street_address" name="street_address" rows="3"
+                                placeholder="សូមបញ្ចូលអាសយដ្ឋានផ្លូវ ឬ ឈ្មោះភ្នាក់ងារ"
+                                class="w-full rounded-lg border border-gray-300 dark:border-gray-600 py-2 px-3 dark:bg-gray-700 dark:text-gray-200 @error('street_address')  @enderror transition-colors duration-200 ease-in-out"></textarea>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                                ឧ. ផ្ទះលេខ T07, ផ្លូវ 73, ខេត្តត្បូងឃ្មុំ / VET Express តំបន់និគមលើ etc.
+                            </p>
                             @error('street_address')
-                                <div class="text-red-500 dark:text-red-400 text-sm">{{ $message }}</div>
+                                <div class="text-red-500 dark:text-red-400 text-sm mt-1">
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
+
                     </div>
                     <div class="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4">
                         ជ្រើសរើសវិធីសាស្ត្រទូទាត់
@@ -131,7 +138,7 @@
                                 <div x-data="{ tooltip: false }" class="relative flex items-center">
 
                                     <div class="w-full text-lg font-semibold">
-                                        ផ្ទេរប្រាក់តាម (ABA, ACLEDA)
+                                        Direct Bank Transfer
                                     </div>
 
                                     <div @mouseenter="tooltip = true" @mouseleave="tooltip = false"

@@ -27,7 +27,7 @@
       <div class="col-span-1">
         <h4 class="font-semibold text-gray-800 dark:text-amber-500">ហាងរបស់យើង</h4>
         <div class="mt-3 grid space-y-3">
-          <a wire:navigate href="{{ route('about') }}"
+          <a wire:navigate href="/about-us"
             class="text-gray-600 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 transition duration-300">អំពីពួកយើង</a>
           <a href="#"
             class="text-gray-600 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 transition duration-300">ប្លូក</a>
