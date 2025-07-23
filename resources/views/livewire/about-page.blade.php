@@ -4,7 +4,7 @@
         <!-- Header Section -->
         <div class="text-center mb-20">
             <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                About <span class="text-blue-600">YDLPhoneshop</span>
+                អំពីយើង <span class="text-blue-600">YDL​ Phoneshop</span>
             </h1>
             <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-300" lang="km">
                 ហាងទូរសព្ទដៃរយ៉តដាឡែន ស្វែងរកស្មាតហ្វូនស៊េរីថ្មីៗ និង មួយទឹកមានគុណភាពល្អ
