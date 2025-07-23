@@ -224,7 +224,7 @@
         </div>
       </div>
       <div class="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm p-6">
-        <h2 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Shipping Address</h2>
+        <h2 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">អាសយដ្ឋានដឹកជញ្ជូន</h2>
         <div class="text-slate-600 dark:text-slate-300 space-y-2">
           <p class="font-medium text-slate-800 dark:text-slate-200">{{ $address->full_name }}</p>
           <p>{{ $address->street_address}}, {{ $address->city }}, {{$address->province}} {{ $address->zip_code }}</p>
