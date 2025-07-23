@@ -19,8 +19,7 @@
             class="text-gray-600 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 transition duration-300">ប្រភេទផលិតផល</a>
           <a href="/products"
             class="text-gray-600 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 transition duration-300">ផលិតផលទាំងអស់</a>
-          <a href="/products"
-            class="text-gray-600 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 transition duration-300">ផលិតផលពិសេស</a>
+
         </div>
       </div>
 
@@ -32,8 +31,7 @@
             class="text-gray-600 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 transition duration-300">អំពីពួកយើង</a>
           <a href="#"
             class="text-gray-600 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 transition duration-300">ប្លូក</a>
-          <a href="#"
-            class="text-gray-600 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 transition duration-300">អតិថិជន</a>
+
         </div>
       </div>
 

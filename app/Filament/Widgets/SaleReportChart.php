@@ -10,7 +10,7 @@ class SaleReportChart extends ChartWidget
 {
     protected static ?string $heading = 'Sales Report';
 
-    public ?string $filter = 'today';
+    public ?string $filter = 'week';
 
     protected int | string | array $columnSpan = 'full';
 
