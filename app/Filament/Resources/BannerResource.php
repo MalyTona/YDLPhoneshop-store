@@ -19,6 +19,11 @@ class BannerResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';
 
+    //custome navbar name into khmer
+    public static function getNavigationLabel(): string
+    {
+        return __('បដាពាណិជ្ជកម្ម');
+    }
     public static function form(Form $form): Form
     {
         return $form
@@ -90,7 +95,7 @@ class BannerResource extends Resource
                 //
             ])
             ->actions([
-                 Tables\Actions\ActionGroup::make([
+                Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make(),
                     Tables\Actions\EditAction::make(),
                     Tables\Actions\DeleteAction::make(),

@@ -10,6 +10,11 @@ class SaleReportChart extends ChartWidget
 {
     protected static ?string $heading = 'Sales Report';
 
+    //custome navbar name into khmer
+    public static function getNavigationLabel(): string
+    {
+        return __('របាយការលក់');
+    }
     public ?string $filter = 'week';
 
     protected int | string | array $columnSpan = 'full';

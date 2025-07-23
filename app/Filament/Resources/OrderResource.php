@@ -38,7 +38,11 @@ class OrderResource extends Resource
     protected static ?string $model = Order::class;
     protected static ?int $navigationSort = 5;
     protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
-
+    //custome navbar name into khmer
+    public static function getNavigationLabel(): string
+    {
+        return __('ការបញ្ជាទិញ');
+    }
     public static function form(Form $form): Form
     {
         return $form

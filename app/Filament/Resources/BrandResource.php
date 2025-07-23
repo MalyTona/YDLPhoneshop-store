@@ -30,37 +30,42 @@ class BrandResource extends Resource
     // Global Search function
     protected static ?string $recordTitleAttribute = 'name';
 
+    //custome navbar name into khmer
+    public static function getNavigationLabel(): string
+    {
+        return __('ម៉ាកទូរស័ព្ទ');
+    }
     public static function form(Form $form): Form
     {
         return $form
-             ->schema([
-               Section::make([
+            ->schema([
+                Section::make([
                     Grid::make()
-                    ->schema([
-                        TextInput::make('name')
-                            ->required()
-                            ->maxLength(255)
-                            ->live(onBlur: true)
-                            ->afterStateUpdated(fn (string $operation, $state, Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
-                        
-                        TextInput::make('slug')
-                            ->maxLength(255)
-                            ->disabled()
-                            ->required()
-                            ->dehydrated()
-                            ->unique(Brand::class, 'slug', ignoreRecord: true),
+                        ->schema([
+                            TextInput::make('name')
+                                ->required()
+                                ->maxLength(255)
+                                ->live(onBlur: true)
+                                ->afterStateUpdated(fn(string $operation, $state, Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
 
-                        FileUpload::make('image')
-                            ->image()
-                            ->directory('brands')
-                            ->columnSpanFull(), 
+                            TextInput::make('slug')
+                                ->maxLength(255)
+                                ->disabled()
+                                ->required()
+                                ->dehydrated()
+                                ->unique(Brand::class, 'slug', ignoreRecord: true),
 
-                        Toggle::make('is_active')
-                            ->required()
-                            ->default(true),
-                    ])
-               ])
-                    
+                            FileUpload::make('image')
+                                ->image()
+                                ->directory('brands')
+                                ->columnSpanFull(),
+
+                            Toggle::make('is_active')
+                                ->required()
+                                ->default(true),
+                        ])
+                ])
+
             ]);
     }
 
@@ -76,7 +81,7 @@ class BrandResource extends Resource
 
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
-                
+
                 Tables\Columns\IconColumn::make('is_active')
                     ->boolean(),
 
@@ -94,7 +99,7 @@ class BrandResource extends Resource
                 //
             ])
             ->actions([
-                 Tables\Actions\ActionGroup::make([
+                Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make(),
                     Tables\Actions\EditAction::make(),
                     Tables\Actions\DeleteAction::make(),
@@ -113,7 +118,7 @@ class BrandResource extends Resource
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [

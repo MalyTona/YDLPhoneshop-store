@@ -19,7 +19,11 @@ class SaleReport extends Page
     protected static ?string $navigationGroup = 'Reports';
 
     protected static ?string $title = 'Sale Report';
-
+    //custome navbar name into khmer
+    public static function getNavigationLabel(): string
+    {
+        return __('របាយការលក់');
+    }
     protected static ?int $navigationSort = 1;
 
     public ?string $filter = 'today';

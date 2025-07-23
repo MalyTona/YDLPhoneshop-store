@@ -21,7 +21,11 @@ class UserResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
     // Global Search function
     protected static ?string $recordTitleAttribute = 'name';
-
+    //custome navbar name into khmer
+    public static function getNavigationLabel(): string
+    {
+        return __('អ្នកប្រើប្រាស់');
+    }
     public static function form(Form $form): Form
     {
         return $form->schema([

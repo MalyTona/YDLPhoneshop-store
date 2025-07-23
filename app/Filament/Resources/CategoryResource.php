@@ -22,44 +22,49 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
+
 class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
     protected static ?int $navigationSort = 3;
     protected static ?string $navigationIcon = 'heroicon-o-tag';
-  // Global Search function
+    // Global Search function
     protected static ?string $recordTitleAttribute = 'name';
-    
+    //custome navbar name into khmer
+    public static function getNavigationLabel(): string
+    {
+        return __('ប្រភេទ');
+    }
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-               Section::make([
+                Section::make([
                     Grid::make()
-                    ->schema([
-                        TextInput::make('name')
-                            ->required()
-                            ->maxLength(255)
-                            ->live(onBlur: true)
-                            ->afterStateUpdated(fn (string $operation, $state, Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
-                        
-                        TextInput::make('slug')
-                            ->maxLength(255)
-                            ->disabled()
-                            ->required()
-                            ->dehydrated()
-                            ->unique(Category::class, 'slug', ignoreRecord: true),
+                        ->schema([
+                            TextInput::make('name')
+                                ->required()
+                                ->maxLength(255)
+                                ->live(onBlur: true)
+                                ->afterStateUpdated(fn(string $operation, $state, Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
 
-                        FileUpload::make('image')
-                            ->image()
-                            ->directory('categories')
-                            ->columnSpanFull(), 
-                        Toggle::make('is_active')
-                            ->required()
-                            ->default(true),
-                    ])
-               ])
-                    
+                            TextInput::make('slug')
+                                ->maxLength(255)
+                                ->disabled()
+                                ->required()
+                                ->dehydrated()
+                                ->unique(Category::class, 'slug', ignoreRecord: true),
+
+                            FileUpload::make('image')
+                                ->image()
+                                ->directory('categories')
+                                ->columnSpanFull(),
+                            Toggle::make('is_active')
+                                ->required()
+                                ->default(true),
+                        ])
+                ])
+
             ]);
     }
 
@@ -69,16 +74,16 @@ class CategoryResource extends Resource
             ->columns([
 
                 ImageColumn::make('image'),
-                    
+
 
 
                 TextColumn::make('name')
                     ->searchable(),
 
-                
+
                 TextColumn::make('slug')
                     ->searchable(),
-                    
+
 
 
                 IconColumn::make('is_active')
@@ -116,9 +121,9 @@ class CategoryResource extends Resource
         ];
     }
     public static function getGloballySearchableAttributes(): array
-        {
-            return ['name', 'slug'];
-        }
+    {
+        return ['name', 'slug'];
+    }
     public static function getPages(): array
     {
         return [

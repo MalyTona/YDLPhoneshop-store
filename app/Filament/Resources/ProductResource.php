@@ -35,6 +35,11 @@ class ProductResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-squares-plus';
     //Global search Product
     protected static ?string $recordTitleAttribute = 'name';
+    //custome navbar name into khmer
+    public static function getNavigationLabel(): string
+    {
+        return __('ផលិតផល ');
+    }
     public static function form(Form $form): Form
     {
         return $form
