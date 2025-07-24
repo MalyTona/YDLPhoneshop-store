@@ -3,6 +3,8 @@
 namespace App\Filament\Pages;
 
 use App\Exports\OrdersExport;
+use App\Filament\Resources\OrderResource\Widgets\OrderStats;
+use App\Filament\Widgets\AllOrdersChart;
 use App\Filament\Widgets\LatestOrders;
 use Filament\Pages\Page;
 use App\Filament\Widgets\SaleReportChart;
@@ -37,8 +39,10 @@ class SaleReport extends Page
     protected function getHeaderWidgets(): array
     {
         return [
+            OrderStats::class,
             SaleReportChart::class,
-            LatestOrders::class,
+            // LatestOrders::class,
+            AllOrdersChart::class,
         ];
     }
 

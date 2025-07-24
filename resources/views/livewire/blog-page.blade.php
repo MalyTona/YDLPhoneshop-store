@@ -14,7 +14,7 @@
                 <div wire:key="{{ $post->id }}"
                     class="bg-white dark:bg-slate-800/50 rounded-2xl shadow-lg overflow-hidden flex flex-col">
                     <a href="{{ route('post.detail', $post->slug) }}">
-                        <img class="w-full h-48 object-cover" src="{{ url('storage', $post->image) }}"
+                        <img class="w-full h-80 object-cover" src="{{ url('storage', $post->image) }}"
                             alt="{{ $post->title }}">
                     </a>
                     <div class="p-6 flex flex-col flex-grow">

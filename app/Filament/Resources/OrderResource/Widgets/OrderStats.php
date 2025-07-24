@@ -17,9 +17,15 @@ class OrderStats extends BaseWidget
             Stat::make('ការបញ្ចាទិញបានរៀបចំ', Order::query()->where('status', 'processing')->count()),
             Stat::make('ការបញ្ចាទិញបានដឹកជញ្ជូន', Order::query()->where('status', 'shipped')->count()),
             Stat::make('ការបញ្ចាទិញបានទៅដល់', Order::query()->where('status', 'delivered')->count()),
-            Stat::make('បានបោះបង់ការបញ្ជាទិញ', Order::query()->where('status', 'cancelled')->count()),
-            Stat::make('សាច់ប្រាក់សរុប', Number::currency(Order::query()->sum('grand_total'), 'USD'))
-            //     Stat::make('មធ្យមសាច់ប្រាក់នៃការបញ្ជាទិញ (រៀល)', Number::currency(Order::query()->avg('grand_total') * 4015, 'KHR'))
+            // Stat::make('បានបោះបង់ការបញ្ជាទិញ', Order::query()->where('status', 'cancelled')->count()),
+
+
+            // Stat::make('Average Price', Number::currency(Order::query()->avg('grand_total'), 'USD')),
+            Stat::make('តម្លៃមធ្យម (Average Price)', Number::currency(Order::query()->where('payment_status', 'paid')->avg('grand_total'), 'USD')),
+
+            // Corrected: Only sum the grand_total for orders where payment_status is 'paid'
+            Stat::make('សាច់ប្រាក់សរុប (Revenue)', Number::currency(Order::query()->where('payment_status', 'paid')->sum('grand_total'), 'USD')),
+
 
 
 

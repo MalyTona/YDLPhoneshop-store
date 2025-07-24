@@ -21,6 +21,11 @@ class PostResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-pencil-square';
     protected static ?int $navigationSort = 7;
+    //custome navbar name into khmer
+    public static function getNavigationLabel(): string
+    {
+        return __('បង្ហោះ ');
+    }
     public static function form(Form $form): Form
     {
         return $form

@@ -1,7 +1,7 @@
 <div class="bg-white dark:bg-slate-900 font-sans py-12">
     <div class="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-8">
-            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">
                 {{ $post->title }}
             </h1>
             <p class="mt-4 text-slate-500 dark:text-slate-400">
