@@ -13,7 +13,7 @@ class SaleReportChart extends ChartWidget
 
     public ?string $filter = 'week';
 
-    protected int | string | array $columnSpan = 'full';
+    // protected int | string | array $columnSpan = 'full';
 
     /**
      * Dispatch event on initial load to sync the page.

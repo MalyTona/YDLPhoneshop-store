@@ -6,9 +6,11 @@ use App\Livewire\Auth\ForgotPassword;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
 use App\Livewire\Auth\ResetPassword;
+use App\Livewire\BlogPage;
 use App\Livewire\CancelPage;
 use App\Livewire\HomePage;
 use App\Livewire\CategoryPage;
+use App\Livewire\PostDetailPage;
 use App\Livewire\ProductsPage;
 use App\Livewire\CartPage;
 use App\Livewire\ProductDetailPage;
@@ -33,6 +35,8 @@ Route::get('/products/{slug}', ProductDetailPage::class);
 
 Route::get('/invoice/download/{order}', [InvoiceController::class, 'download'])->name('invoice.download')->middleware('auth');
 Route::get('/about-us', AboutPage::class)->name('about');
+Route::get('/blog', BlogPage::class)->name('blog');
+Route::get('/blog/{slug}', PostDetailPage::class)->name('post.detail');
 // middleware guest
 Route::middleware('guest')->group(function () {
     //auth route
