@@ -3,26 +3,74 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
-use Barryvdh\DomPDF\Facade\Pdf;
+use KhmerPdf\LaravelKhPdf\Facades\PdfKh;
 use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
 {
     public function download(Order $order)
     {
-        // Load the necessary relationships for the invoice
+
         $order->load(['user', 'items.product', 'address']);
 
-        // Set DomPDF options
-        $options = [
-            'isHtml5ParserEnabled' => true,
-            'isRemoteEnabled' => true,
+
+        $html = view('invoices.invoice', compact('order'))->render();
+
+
+        $config = [
+            'mode' => 'utf-8',
+            'format' => 'A4',
+            'margin_top' => 10,
+            'margin_bottom' => 10,
+            'margin_left' => 10,
+            'margin_right' => 10,
+            'default_font' => 'battambang',
         ];
 
-        // Pass data to the new view and load it into PDF
-        $pdf = Pdf::loadView('invoices.invoice', compact('order'))->setOptions($options);
+        // Generate and download PDF
+        return PdfKh::loadHtml($html)
+            ->addMPdfConfig($config)
+            ->download('invoice-INV-' . str_pad($order->id, 6, '0', STR_PAD_LEFT) . '.pdf');
+    }
 
-        // Return a downloadable PDF
-        return $pdf->download('invoice-INV-' . str_pad($order->id, 6, '0', STR_PAD_LEFT) . '.pdf');
+    public function stream(Order $order)
+    {
+        // Alternative method to view PDF in browser
+        $order->load(['user', 'items.product', 'address']);
+        $html = view('invoices.invoice', compact('order'))->render();
+
+        $config = [
+            'mode' => 'utf-8',
+            'format' => 'A4',
+            'default_font' => 'battambang',
+        ];
+
+        return PdfKh::loadHtml($html)
+            ->addMPdfConfig($config)
+            ->stream('invoice-INV-' . str_pad($order->id, 6, '0', STR_PAD_LEFT) . '.pdf');
+    }
+
+    public function save(Order $order)
+    {
+        // Method to save PDF to storage
+        $order->load(['user', 'items.product', 'address']);
+        $html = view('invoices.invoice', compact('order'))->render();
+
+        $config = [
+            'mode' => 'utf-8',
+            'format' => 'A4',
+            'default_font' => 'battambang',
+        ];
+
+        $filename = 'invoices/invoice-INV-' . str_pad($order->id, 6, '0', STR_PAD_LEFT) . '.pdf';
+
+        $path = PdfKh::loadHtml($html)
+            ->addMPdfConfig($config)
+            ->save($filename, 'public');
+
+        return response()->json([
+            'success' => true,
+            'pdf_url' => asset('storage/' . $path)
+        ]);
     }
 }
