@@ -78,6 +78,7 @@ class BannerResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image_path')
+                    ->disk('private')
                     ->size(60),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable()
