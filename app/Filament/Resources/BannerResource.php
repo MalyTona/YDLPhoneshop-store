@@ -50,8 +50,6 @@ class BannerResource extends Resource
                             ->label('Slide Image')
                             ->image()
                             ->directory('slides')
-                            ->disk('s3') // <-- FORCING S3 FOR THIS TEST
-                            ->visibility('public')
                             ->required(),
                         Forms\Components\TextInput::make('button_text')
                             ->default('Learn More'),
@@ -78,7 +76,6 @@ class BannerResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image_path')
-                    ->disk('s3')
                     ->size(60),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable()
