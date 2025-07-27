@@ -50,6 +50,7 @@ class BannerResource extends Resource
                             ->label('Slide Image')
                             ->image()
                             ->directory('slides')
+                            ->disk('private')
                             ->visibility('private')
                             ->required(),
                         Forms\Components\TextInput::make('button_text')
