@@ -50,6 +50,9 @@ class BannerResource extends Resource
                             ->label('Slide Image')
                             ->image()
                             ->directory('slides')
+                            ->disk('s3') // Tell Filament to use the S3 disk
+                            ->directory('images') // Optional: a directory within the bucket
+                            ->visibility('public')
                             ->required(),
                         Forms\Components\TextInput::make('button_text')
                             ->default('Learn More'),
