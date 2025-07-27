@@ -50,8 +50,6 @@ class BannerResource extends Resource
                             ->label('Slide Image')
                             ->image()
                             ->directory('slides')
-                            ->disk('private')
-                            ->visibility('private')
                             ->required(),
                         Forms\Components\TextInput::make('button_text')
                             ->default('Learn More'),
@@ -78,7 +76,6 @@ class BannerResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image_path')
-                    ->disk('private')
                     ->size(60),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable()
