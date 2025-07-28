@@ -21,10 +21,10 @@ class OrderStats extends BaseWidget
 
 
             // Stat::make('Average Price', Number::currency(Order::query()->avg('grand_total'), 'USD')),
-            Stat::make('តម្លៃមធ្យម (Average Price)', Number::currency(Order::query()->where('payment_status', 'paid')->avg('grand_total'), 'USD')),
+            Stat::make('តម្លៃមធ្យម (Average Price)', Number::currency(Order::query()->where('payment_status', 'paid')->avg('grand_total') ?? 0, 'USD')),
 
             // Corrected: Only sum the grand_total for orders where payment_status is 'paid'
-            Stat::make('សាច់ប្រាក់សរុប (Revenue)', Number::currency(Order::query()->where('payment_status', 'paid')->sum('grand_total'), 'USD')),
+            Stat::make('សាច់ប្រាក់សរុប (Revenue)', Number::currency(Order::query()->where('payment_status', 'paid')->sum('grand_total') ?? 0,  'USD')),
 
 
 
