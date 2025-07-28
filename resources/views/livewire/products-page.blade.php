@@ -250,7 +250,7 @@
         <!-- Product Image -->
         <div class="relative aspect-square bg-gray-100 dark:bg-gray-800 overflow-hidden">
           <a href="/products/{{ $product->slug }}" wire:navigate>
-          <img src="{{ url('storage', $product->images[0]) }}" alt="{{ $product->name }}"
+          <img src="{{ Storage::url($product->images[0]) }}" alt="{{ $product->name }}"
             class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
             loading="lazy" onerror="this.src='/images/placeholder-product.png'">
           </a>

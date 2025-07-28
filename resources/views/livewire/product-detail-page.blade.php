@@ -87,7 +87,8 @@
         <div class="space-y-3 sm:space-y-4" x-data="{ 
           mainImage: '{{ $product->images && count($product->images) > 0 ? url('storage', $product->images[0]) : '/images/placeholder-product.png' }}',
           currentIndex: 0,
-          images: {{ json_encode($product->images ? array_map(fn($img) => url('storage', $img), $product->images) : ['/images/placeholder-product.png']) }},
+          {{-- images: {{ json_encode($product->images ? array_map(fn($img) => url('storage', $img), $product->images) : ['/images/placeholder-product.png']) }}, --}}
+          images: {{ json_encode($product->images ? array_map(fn($img) => Storage::url($img), $product->images) : [asset('images/placeholder-product.png')]) }},
           isZoomed: false
         }">
 
@@ -296,18 +297,18 @@
           <!-- Product Description -->
           @if($product->description)
         <div class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-4 max-w-none
-          [&>h1]:text-2xl [&>h1]:font-bold [&>h1]:text-gray-900 [&>h1]:dark:text-white [&>h1]:mb-4
-          [&>h2]:text-xl [&>h2]:font-semibold [&>h2]:text-gray-900 [&>h2]:dark:text-white [&>h2]:mb-3
-          [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:text-gray-900 [&>h3]:dark:text-white [&>h3]:mb-2
-          [&>p]:text-gray-700 [&>p]:dark:text-gray-300 [&>p]:mb-4
-          [&>a]:text-amber-600 [&>a]:dark:text-amber-400 [&>a]:underline [&>a]:font-medium
-          [&>strong]:text-gray-900 [&>strong]:dark:text-white [&>strong]:font-semibold
-          [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:space-y-1 [&_ul]:text-gray-700 [&_ul]:dark:text-gray-300
-          [&_ol]:list-decimal [&_ol]:ml-6 [&_ol]:space-y-1 [&_ol]:text-gray-700 [&_ol]:dark:text-gray-300
-          [&_li]:text-gray-700 [&_li]:dark:text-gray-300 [&_li]:ml-0
-          [&>blockquote]:border-l-4 [&>blockquote]:border-amber-500 [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-600 [&>blockquote]:dark:text-gray-400
-          [&>code]:bg-gray-100 [&>code]:dark:bg-gray-800 [&>code]:px-1 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:text-gray-800 [&>code]:dark:text-gray-200
-          [&_img]:max-w-full [&_img]:h-auto [&_img]:rounded-lg [&_img]:my-4">
+        [&>h1]:text-2xl [&>h1]:font-bold [&>h1]:text-gray-900 [&>h1]:dark:text-white [&>h1]:mb-4
+        [&>h2]:text-xl [&>h2]:font-semibold [&>h2]:text-gray-900 [&>h2]:dark:text-white [&>h2]:mb-3
+        [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:text-gray-900 [&>h3]:dark:text-white [&>h3]:mb-2
+        [&>p]:text-gray-700 [&>p]:dark:text-gray-300 [&>p]:mb-4
+        [&>a]:text-amber-600 [&>a]:dark:text-amber-400 [&>a]:underline [&>a]:font-medium
+        [&>strong]:text-gray-900 [&>strong]:dark:text-white [&>strong]:font-semibold
+        [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:space-y-1 [&_ul]:text-gray-700 [&_ul]:dark:text-gray-300
+        [&_ol]:list-decimal [&_ol]:ml-6 [&_ol]:space-y-1 [&_ol]:text-gray-700 [&_ol]:dark:text-gray-300
+        [&_li]:text-gray-700 [&_li]:dark:text-gray-300 [&_li]:ml-0
+        [&>blockquote]:border-l-4 [&>blockquote]:border-amber-500 [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-600 [&>blockquote]:dark:text-gray-400
+        [&>code]:bg-gray-100 [&>code]:dark:bg-gray-800 [&>code]:px-1 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:text-gray-800 [&>code]:dark:text-gray-200
+        [&_img]:max-w-full [&_img]:h-auto [&_img]:rounded-lg [&_img]:my-4">
         {!! $product->description !!}
         </div>
       @endif
