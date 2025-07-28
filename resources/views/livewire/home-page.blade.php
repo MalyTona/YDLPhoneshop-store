@@ -9,7 +9,8 @@
         </h2>
         <div class="mt-2 mb-4 h-1 w-32 mx-auto bg-gradient-to-r from-amber-400 to-blue-500 rounded-full"></div>
         <p class="max-w-2xl mx-auto text-base text-gray-600 dark:text-gray-400">
-          យើងមានលក់ទូរស័ព្ទដៃស្មាតហ្វូនពីបណ្តាម៉ាកល្បីៗជាច្រើន។ ស្វែងរកម៉ាកដែលអ្នកពេញចិត្តខាងក្រោម។
+          {{-- យើងមានលក់ទូរស័ព្ទដៃស្មាតហ្វូនពីបណ្តាម៉ាកល្បីៗជាច្រើន។ ស្វែងរកម៉ាកដែលអ្នកពេញចិត្តខាងក្រោម។ --}} testing
+          leng sen
         </p>
       </div>
 
