@@ -137,6 +137,10 @@
                                 {{ $order->created_at->format('d M, Y') }}<br />
                                 <strong><span class="khmer-font">ស្ថានភាព</span> / Status:</strong> <span
                                     class="status-badge">{{ ucfirst($order->status) }}</span><br />
+                                <strong><span class="khmer-font">វិធីសាស្រ្តបង់លុយ</span> /Payment Methods:</strong>
+                                <span class="status-badge">{{ ucfirst($order->payment_method) }}</span><br />
+                                <strong><span class="khmer-font">ស្ថានភាពបង់លុយ</span> / Payment Status:</strong> <span
+                                    class="status-badge">{{ ucfirst($order->payment_status) }}</span><br />
                             </td>
                         </tr>
                     </table>
