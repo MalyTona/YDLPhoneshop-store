@@ -9,8 +9,7 @@
         </h2>
         <div class="mt-2 mb-4 h-1 w-32 mx-auto bg-gradient-to-r from-amber-400 to-blue-500 rounded-full"></div>
         <p class="max-w-2xl mx-auto text-base text-gray-600 dark:text-gray-400">
-          {{-- យើងមានលក់ទូរស័ព្ទដៃស្មាតហ្វូនពីបណ្តាម៉ាកល្បីៗជាច្រើន។ ស្វែងរកម៉ាកដែលអ្នកពេញចិត្តខាងក្រោម។ --}} testing
-          leng sen
+          យើងមានលក់ទូរស័ព្ទដៃស្មាតហ្វូនពីបណ្តាម៉ាកល្បីៗជាច្រើន។ ស្វែងរកម៉ាកដែលអ្នកពេញចិត្តខាងក្រោម។
         </p>
       </div>
 
@@ -20,7 +19,7 @@
         class="block bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-200 hover:shadow-lg brand-card"
         wire:key="{{ $brand->id }}">
         <div class="h-32 sm:h-40 flex items-center justify-center p-4 bg-gray-100 dark:bg-gray-700/50">
-        <img src="{{ url('storage', $brand->image) }}" alt="{{ $brand->name }} Logo"
+        <img src="src=" {{ Storage::url($brand->image) }} alt="{{ $brand->name }} Logo"
           class="h-16 sm:h-20 object-contain">
         </div>
         <div class="p-3 text-center">
@@ -58,7 +57,7 @@
         <div class="p-4 md:p-5">
         <div class="flex justify-between items-center">
           <div class="flex items-center">
-          <img class="h-14 w-14  object-cover" src="{{url('storage', $category->image)}}"
+          <img class="h-14 w-14  object-cover" src="{{Storage::url($category->image)}}"
             alt="{{ $category->name}}">
           <div class="ms-4">
             <h3 class="group-hover:text-amber-500 font-semibold text-gray-800 dark:text-gray-200">
