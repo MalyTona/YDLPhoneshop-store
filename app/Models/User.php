@@ -28,7 +28,13 @@ class User extends Authenticatable implements FilamentUser
         'password',
         'phone',
     ];
-
+    protected static function booted(): void
+    {
+        static::created(function (User $user) {
+            // Assign the 'user' role to the user upon creation.
+            $user->assignRole('user');
+        });
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
