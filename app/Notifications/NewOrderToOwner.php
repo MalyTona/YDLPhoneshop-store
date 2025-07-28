@@ -49,7 +49,6 @@ class NewOrderToOwner extends Notification
             ->line("")
             ->line("*លេខការបញ្ជាទិញ:* `" . $this->order->id . "`") // Order ID
             ->line("*អតិថិជន:* " . $this->order->address->full_name) // Customer
-            ->line("*ស្ថានភាពការបង់ប្រាក់:* `" . $this->order->payment_status . "`")
             ->line("*លេខទូរស័ព្ទ:* " . $this->order->address->phone) // Phone Number
             ->line("*ចំនួនសរុប:* $" . $grandTotal) // Total Amount
             ->line("")

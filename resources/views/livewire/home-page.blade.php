@@ -19,7 +19,7 @@
         class="block bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-200 hover:shadow-lg brand-card"
         wire:key="{{ $brand->id }}">
         <div class="h-32 sm:h-40 flex items-center justify-center p-4 bg-gray-100 dark:bg-gray-700/50">
-        <img src="src=" {{ Storage::url($brand->image) }} alt="{{ $brand->name }} Logo"
+        <img src=" {{ Storage::url($brand->image) }} alt=" {{ $brand->name }} Logo
           class="h-16 sm:h-20 object-contain">
         </div>
         <div class="p-3 text-center">
