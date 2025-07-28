@@ -75,17 +75,167 @@
     @endforeach
       </div>
     </div>
+
   </section>
+
+  @if ($featuredProducts->isNotEmpty())
+    <section class="bg-gray-50 dark:bg-slate-800 py-16 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl dark:text-white">
+        ផលិតផល<span class="text-amber-500">ពិសេស</span>
+      </h2>
+      {{-- <div class="mt-2 mb-4 h-1 w-32 mx-auto bg-gradient-to-r from-amber-400 to-amber-600 rounded-full"></div>
+      --}}
+      <div class="mt-2 mb-4 h-1 w-32 mx-auto bg-gradient-to-r from-amber-400 to-blue-500 rounded-full"></div>
+
+      <p class="max-w-2xl mx-auto text-base text-gray-600 dark:text-gray-400">
+        ផលិតផលដែលបានជ្រើសរើសយ៉ាងពិសេសសម្រាប់លោកអ្នក
+      </p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+      @foreach ($featuredProducts as $product)
+      <div
+        class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+        wire:key="featured-{{ $product->id }}">
+        <div class="relative aspect-square bg-gray-100 dark:bg-gray-800 overflow-hidden">
+        <a href="/products/{{ $product->slug }}" wire:navigate>
+        <img src="{{ $product->images ? Storage::url($product->images[0]) : '/images/placeholder-product.png' }}"
+        alt="{{ $product->name }}"
+        class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+        loading="lazy">
+        </a>
+        @if($product->on_sale)
+      <div class="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">SALE</div>
+      @endif
+        @if($product->is_featured)
+      <div
+        class="absolute top-3 {{ $product->on_sale ? 'left-16' : 'left-3' }} bg-amber-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+        ⭐ HOT</div>
+      @endif
+        </div>
+        <div class="p-4 sm:p-6">
+        <h3
+        class="text-lg font-semibold text-gray-900 dark:text-white line-clamp-2 h-14 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+        <a href="/products/{{ $product->slug }}" wire:navigate>{{ $product->name }}</a>
+        </h3>
+        <div class="flex items-baseline space-x-2 mt-2 mb-4">
+        <span
+        class="text-xl font-bold text-amber-600 dark:text-amber-400">{{ Number::currency($product->price) }}</span>
+        @if($product->on_sale)
+        <span
+        class="text-sm text-gray-500 line-through dark:text-gray-400">{{ Number::currency($product->price * 1.2) }}</span>
+      @endif
+        </div>
+        @if($product->in_stock && $product->is_active)
+      <button wire:click.prevent="addToCart({{ $product->id }})"
+        class="w-full bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0h8m-8 0a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4z" />
+        </svg>
+        <span wire:loading.remove wire:target='addToCart({{ $product->id }})'
+        class="text-sm">បន្ថែមទៅកន្ត្រក</span>
+        <span wire:loading wire:target='addToCart({{ $product->id }})'>កំពុងបន្ថែម...</span>
+      </button>
+      @else
+      <div
+        class="w-full bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 font-medium py-2 px-4 rounded-lg cursor-not-allowed flex items-center justify-center space-x-2">
+        <span class="text-sm">អស់ស្តុក</span>
+      </div>
+      @endif
+        </div>
+      </div>
+    @endforeach
+      </div>
+    </div>
+    </section>
+  @endif
+
+  @if ($onSaleProducts->isNotEmpty())
+    <section class="bg-gray-50 dark:bg-slate-800 py-16 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl dark:text-white">
+        ផលិតផល<span class="text-red-500">បញ្ចុះតម្លៃ</span>
+      </h2>
+      <div class="mt-5 mb-4 h-1 w-32 mx-auto bg-gradient-to-r from-red-400 to-red-600 rounded-full "></div>
+      <p class="max-w-2xl mx-auto text-base text-gray-600 dark:text-gray-400">
+        ប្រូម៉ូសិនពិសេសសម្រាប់ផលិតផលជាច្រើនមុខ
+      </p>
+      </div>
+
+      {{-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"> --}}
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        @foreach ($onSaleProducts as $product)
+      <div
+      class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+      wire:key="sale-{{ $product->id }}">
+      <div class="relative aspect-square bg-gray-100 dark:bg-gray-800 overflow-hidden">
+        <a href="/products/{{ $product->slug }}" wire:navigate>
+        <img
+        src="{{ $product->images ? Storage::url($product->images[0]) : '/images/placeholder-product.png' }}"
+        alt="{{ $product->name }}"
+        class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+        loading="lazy">
+        </a>
+        @if($product->on_sale)
+      <div class="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">SALE
+      </div>
+      @endif
+        @if($product->is_featured)
+      <div
+      class="absolute top-3 {{ $product->on_sale ? 'left-16' : 'left-3' }} bg-amber-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+      ⭐ HOT</div>
+      @endif
+      </div>
+      <div class="p-4 sm:p-6">
+        <h3
+        class="text-lg font-semibold text-gray-900 dark:text-white line-clamp-2 h-14 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+        <a href="/products/{{ $product->slug }}" wire:navigate>{{ $product->name }}</a>
+        </h3>
+        <div class="flex items-baseline space-x-2 mt-2 mb-4">
+        <span
+        class="text-xl font-bold text-red-600 dark:text-red-400">{{ Number::currency($product->price) }}</span>
+        <span
+        class="text-sm text-gray-500 line-through dark:text-gray-400">{{ Number::currency($product->price * 1.2) }}</span>
+        </div>
+        @if($product->in_stock && $product->is_active)
+      <button wire:click.prevent="addToCart({{ $product->id }})"
+      class="w-full bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0h8m-8 0a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4z" />
+      </svg>
+      <span wire:loading.remove wire:target='addToCart({{ $product->id }})'
+      class="text-sm">បន្ថែមទៅកន្ត្រក</span>
+      <span wire:loading wire:target='addToCart({{ $product->id }})'>កំពុងបន្ថែម...</span>
+      </button>
+      @else
+      <div
+      class="w-full bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 font-medium py-2 px-4 rounded-lg cursor-not-allowed flex items-center justify-center space-x-2">
+      <span class="text-sm">អស់ស្តុក</span>
+      </div>
+      @endif
+      </div>
+      </div>
+      @endforeach
+      </div>
+      </div>
+    </section>
+  @endif
   <!-- Google Map -->
   <section class="bg-gray-50 dark:bg-slate-800 py-16 sm:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl dark:text-white">
-          ទីតាំង<span class="text-amber-500">ហាងយើង</span>
+          {{ $contactInfo->title_main}}<span class="text-amber-500">{{ $contactInfo->title_highlight }}</span>
+        </h2>
         </h2>
         <div class="mt-2 mb-4 h-1 w-32 mx-auto bg-gradient-to-r from-amber-400 to-blue-500 rounded-full"></div>
         <p class="max-w-2xl mx-auto text-base text-gray-600 dark:text-gray-400">
-          សូមអញ្ជើញមកទស្សនាហាងយើងដើម្បីទទួលបានសេវាកម្មដ៏ល្អបំផុត និងផលិតផលគុណភាពខ្ពស់
+          {{ $contactInfo->description}}
         </p>
       </div>
 
@@ -107,7 +257,7 @@
               </div>
               <div>
                 <h4 class="text-lg font-semibold text-gray-900 dark:text-white">អាសយដ្ឋាន</h4>
-                <p class="text-gray-600 dark:text-gray-400">និគមលើ, ស្រឡប់, ខេត្តត្បូងឃ្មុំ</p>
+                <p class="text-gray-600 dark:text-gray-400">{{$contactInfo->address}}</p>
               </div>
             </div>
 
@@ -122,8 +272,8 @@
               </div>
               <div>
                 <h4 class="text-lg font-semibold text-gray-900 dark:text-white">លេខទូរស័ព្ទ</h4>
-                <p class="text-gray-600 dark:text-gray-400">+855 96 684 4498</p>
-                <p class="text-gray-600 dark:text-gray-400">+855 71 600 8881</p>
+                <p class="text-gray-600 dark:text-gray-400">{{$contactInfo->phone_1}}</p>
+                <p class="text-gray-600 dark:text-gray-400">{{$contactInfo->phone_2}}</p>
               </div>
             </div>
 
@@ -138,12 +288,12 @@
               </div>
               <div>
                 <h4 class="text-lg font-semibold text-gray-900 dark:text-white">ម៉ោងបើកទ្វារ</h4>
-                <p class="text-gray-600 dark:text-gray-400">ចន្ទ - អាទិត្យ: 8:00 AM - 8:00 PM</p>
+                <p class="text-gray-600 dark:text-gray-400">{{$contactInfo->opening_hours}}</p>
               </div>
             </div>
 
             <div class="pt-4">
-              <a href="https://t.me/Yoth_Dalen" target="_blank"
+              <a href="{{$contactInfo->telegram_link}}" target="_blank"
                 class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200">
                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                   <path
@@ -159,9 +309,7 @@
         <div class="order-1 lg:order-2">
           <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-lg overflow-hidden h-full">
             <div class="relative w-full h-96 lg:h-full min-h-[500px]">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d244.00939069536986!2d105.80145520137164!3d11.894624119961234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2skh!4v1751950619240!5m2!1sen!2skh"
-                width="100%" height="100%"
+              <iframe src="{{$contactInfo->map_embed_url}}" width="100%" height="100%"
                 style="border:0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen=""
                 loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="YDLPhoneShop Location">
               </iframe>
@@ -172,7 +320,7 @@
 
       <!--  Directions Button -->
       <div class="text-center mt-8">
-        <a href="https://maps.app.goo.gl/hMNkK4VozfFg82KWA" target="_blank"
+        <a href="{{$contactInfo->map_directions_link}}" target="_blank"
           class="inline-flex items-center px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors duration-200">
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -181,6 +329,11 @@
           ទទួលបានទិសដៅ (Get Directions)
         </a>
       </div>
+
+
+
+      <!--Product Card Section -->
+
     </div>
   </section>
 </div>
