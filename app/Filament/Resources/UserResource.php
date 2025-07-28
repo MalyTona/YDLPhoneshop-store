@@ -45,7 +45,11 @@ class UserResource extends Resource
             Forms\Components\DateTimePicker::make('email_verified_at')
                 ->label('Email Verified At')
                 ->default(now()),
-
+            Forms\Components\Select::make('roles')
+                ->multiple()
+                ->relationship('roles', 'name')
+                ->searchable()
+                ->preload(),
             Forms\Components\TextInput::make('password')
                 ->password()
                 ->dehydrated(fn($state) => filled($state))
@@ -64,6 +68,9 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('email')
                     ->label('Email Address')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('roles.name')
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('phone')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email_verified_at'),
