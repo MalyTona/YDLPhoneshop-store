@@ -27,7 +27,7 @@
             <div
             class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700 flex-shrink-0">
             <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              src="{{ url('storage/' . $item['image']) }}" alt="{{ $item['name'] }}"
+              src="{{ Storage::url($item['image']) }}" alt=" {{ $item['name'] }}"
               onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9Ijk2IiBoZWlnaHQ9Ijk2IiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjQ4IiBjeT0iNDgiIHI9IjIwIiBmaWxsPSIjRDFENURCIi8+CjxwYXRoIGQ9Ik00MCA0MEg1NlY1Nkg0MFY0MFoiIGZpbGw9IiNBN0E3QTciLz4KPC9zdmc+Cg=='">
             </div>
             {{-- Stock indicator --}}

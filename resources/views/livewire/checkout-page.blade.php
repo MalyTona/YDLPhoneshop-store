@@ -288,7 +288,7 @@
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0">
                                             <img alt="{{ $ci['name'] }}" class="w-12 h-12 rounded-full"
-                                                src="{{ url('storage', $ci['image']) }}">
+                                                src="{{ Storage::url($ci['image']) }}">
                                         </div>
                                         <div class="flex-1 min-w-0 ms-4">
                                             <p class="text-sm font-medium text-gray-900 dark:text-gray-200 truncate">

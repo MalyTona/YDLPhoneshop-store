@@ -168,7 +168,7 @@
           <th scope="row" class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">
             <div class="flex flex-col sm:flex-row sm:items-center gap-4 w-full max-w-[200px] sm:max-w-none">
             <img class="h-16 w-16 rounded-md object-cover shrink-0"
-              src="{{ url('storage', $item->product->images[0]) }}" alt="{{$item->product->name}}">
+              src="{{ Storage::url($item->product->images[0]) }}" alt="{{$item->product->name}}">
             <span class="break-words whitespace-normal text-sm sm:text-base leading-snug">
               {{$item->product->name}}
             </span>

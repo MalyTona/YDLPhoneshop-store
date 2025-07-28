@@ -8,7 +8,7 @@
                 Published on {{ $post->created_at->format('F d, Y') }}
             </p>
         </div>
-        <img class="w-full h-auto rounded-2xl shadow-lg mb-8" src="{{ url('storage', $post->image) }}"
+        <img class="w-full h-auto rounded-2xl shadow-lg mb-8" src="{{ Storage::url($post->image) }}"
             alt="{{ $post->title }}">
         <div class=" text-slate-900 dark:text-white max-w-none">
             {!! $post->content !!}
