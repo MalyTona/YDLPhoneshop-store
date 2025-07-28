@@ -166,10 +166,10 @@
         <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300">រូបភាពផ្សេងទៀត</h3>
         <div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3">
           @foreach($product->images as $index => $image)
-        <button @click="mainImage = '{{ url('storage', $image) }}'; currentIndex = {{ $index }}"
+        <button @click="mainImage = '{{ Storage::url($image) }}'; currentIndex = {{ $index }}"
         class="relative aspect-square bg-gray-100 dark:bg-gray-700 rounded-md sm:rounded-lg overflow-hidden border-2 transition-all duration-200 hover:shadow-md"
         :class="currentIndex === {{ $index }} ? 'border-amber-500 ring-2 ring-amber-500/20 shadow-md' : 'border-gray-200 dark:border-gray-600 hover:border-amber-300 dark:hover:border-amber-600'">
-        <img src="{{ url('storage', $image) }}" alt="{{ $product->name }} - រូបភាពទី {{ $index + 1 }}"
+        <img src="{{ Storage::url($image) }}" alt="{{ $product->name }} - រូបភាពទី {{ $index + 1 }}"
         class="w-full h-full object-contain p-1 sm:p-2" loading="lazy"
         onerror="this.src='/images/placeholder-product.png'">
         <!-- Active Indicator -->
@@ -295,21 +295,21 @@
           </div>
           <!-- Product Description -->
           @if($product->description)
-          <div class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-4 max-w-none
-        [&>h1]:text-2xl [&>h1]:font-bold [&>h1]:text-gray-900 [&>h1]:dark:text-white [&>h1]:mb-4
-        [&>h2]:text-xl [&>h2]:font-semibold [&>h2]:text-gray-900 [&>h2]:dark:text-white [&>h2]:mb-3
-        [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:text-gray-900 [&>h3]:dark:text-white [&>h3]:mb-2
-        [&>p]:text-gray-700 [&>p]:dark:text-gray-300 [&>p]:mb-4
-        [&>a]:text-amber-600 [&>a]:dark:text-amber-400 [&>a]:underline [&>a]:font-medium
-        [&>strong]:text-gray-900 [&>strong]:dark:text-white [&>strong]:font-semibold
-        [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:space-y-1 [&_ul]:text-gray-700 [&_ul]:dark:text-gray-300
-        [&_ol]:list-decimal [&_ol]:ml-6 [&_ol]:space-y-1 [&_ol]:text-gray-700 [&_ol]:dark:text-gray-300
-        [&_li]:text-gray-700 [&_li]:dark:text-gray-300 [&_li]:ml-0
-        [&>blockquote]:border-l-4 [&>blockquote]:border-amber-500 [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-600 [&>blockquote]:dark:text-gray-400
-        [&>code]:bg-gray-100 [&>code]:dark:bg-gray-800 [&>code]:px-1 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:text-gray-800 [&>code]:dark:text-gray-200
-        [&_img]:max-w-full [&_img]:h-auto [&_img]:rounded-lg [&_img]:my-4">
-          {!! $product->description !!}
-          </div>
+        <div class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-4 max-w-none
+      [&>h1]:text-2xl [&>h1]:font-bold [&>h1]:text-gray-900 [&>h1]:dark:text-white [&>h1]:mb-4
+      [&>h2]:text-xl [&>h2]:font-semibold [&>h2]:text-gray-900 [&>h2]:dark:text-white [&>h2]:mb-3
+      [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:text-gray-900 [&>h3]:dark:text-white [&>h3]:mb-2
+      [&>p]:text-gray-700 [&>p]:dark:text-gray-300 [&>p]:mb-4
+      [&>a]:text-amber-600 [&>a]:dark:text-amber-400 [&>a]:underline [&>a]:font-medium
+      [&>strong]:text-gray-900 [&>strong]:dark:text-white [&>strong]:font-semibold
+      [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:space-y-1 [&_ul]:text-gray-700 [&_ul]:dark:text-gray-300
+      [&_ol]:list-decimal [&_ol]:ml-6 [&_ol]:space-y-1 [&_ol]:text-gray-700 [&_ol]:dark:text-gray-300
+      [&_li]:text-gray-700 [&_li]:dark:text-gray-300 [&_li]:ml-0
+      [&>blockquote]:border-l-4 [&>blockquote]:border-amber-500 [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-600 [&>blockquote]:dark:text-gray-400
+      [&>code]:bg-gray-100 [&>code]:dark:bg-gray-800 [&>code]:px-1 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:text-gray-800 [&>code]:dark:text-gray-200
+      [&_img]:max-w-full [&_img]:h-auto [&_img]:rounded-lg [&_img]:my-4">
+        {!! $product->description !!}
+        </div>
       @endif
           <div class="flex items-center space-x-2">
             @if($product->in_stock)
