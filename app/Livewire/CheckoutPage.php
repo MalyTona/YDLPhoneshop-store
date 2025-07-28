@@ -33,6 +33,15 @@ class CheckoutPage extends Component
         if (count($cart_items) == 0) {
             return redirect('/products');
         }
+
+        if (Auth::check()) {
+            $user = Auth::user();
+            $name_parts = explode(' ', $user->name, 2);
+
+            $this->first_name = $name_parts[0];
+            $this->last_name = $name_parts[1] ?? '';
+            $this->phone = $user->phone;
+        }
     }
     public function placeOrder()
     {
