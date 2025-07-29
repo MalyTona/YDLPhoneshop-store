@@ -37,7 +37,7 @@ class HomePage extends Component
     {
         $brands = Brand::where('is_active', 1)->get();
         $categories = Category::where('is_active', 1)->get();
-        $contactInfo = ContactInfo::firstOrFail();
+        $contactInfo = ContactInfo::first();
 
         // Add new queries for featured and on-sale products
         $featuredProducts = Product::where('is_active', true)
