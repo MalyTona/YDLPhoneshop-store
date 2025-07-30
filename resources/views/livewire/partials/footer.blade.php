@@ -15,9 +15,9 @@
       <div class="col-span-1">
         <h4 class="font-semibold text-gray-800 dark:text-amber-500">ផលិតផល</h4>
         <div class="mt-3 grid space-y-3">
-          <a href="/categories"
+          <a wire:navigate href="/categories"
             class="text-gray-600 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 transition duration-300">ប្រភេទផលិតផល</a>
-          <a href="/products"
+          <a wire:navigate href="/products"
             class="text-gray-600 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 transition duration-300">ផលិតផលទាំងអស់</a>
 
         </div>

@@ -81,10 +81,9 @@
 
     <!-- Main Product Section -->
     <div class="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl overflow-hidden">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 p-4 sm:p-6 lg:p-8">
-
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 p-4 sm:p-6 lg:p-8">
         <!-- Image Gallery Section -->
-        <div class="space-y-3 sm:space-y-4" x-data="{ 
+        <div class="space-y-3 sm:space-y-3 lg:col-span-5" x-data="{ 
           mainImage: '{{ $product->images && count($product->images) > 0 ? Storage::url($product->images[0]) : asset('images/placeholder-product.png') }}',
           currentIndex: 0,
           images: {{ json_encode($product->images ? array_map(fn($img) => Storage::url($img), $product->images) : [asset('images/placeholder-product.png')]) }},
@@ -188,29 +187,52 @@
         </div>
         </div>
       @endif
-
-          <!-- Image Zoom Modal -->
           <div x-show="isZoomed" x-transition:enter="transition ease-out duration-300"
             x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
             x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100"
             x-transition:leave-end="opacity-0"
-            class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4" @click="isZoomed = false"
-            @keydown.escape.window="isZoomed = false">
-            <div class="relative max-w-4xl max-h-full">
-              <img x-bind:src="mainImage" alt="{{ $product->name }}" class="max-w-full max-h-full object-contain"
-                @click.stop>
+            class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-2 sm:p-4"
+            @keydown.escape.window="isZoomed = false" x-cloak>
+
+            {{-- Main Modal Card --}}
+            <div @click.away="isZoomed = false"
+              class="relative bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl shadow-2xl w-full max-w-6xl max-h-[95vh] sm:max-h-[90vh] flex flex-col overflow-hidden">
+
+              {{-- Close Button --}}
               <button @click="isZoomed = false"
-                class="absolute top-2 sm:top-4 right-2 sm:right-4 bg-white/90 hover:bg-white rounded-full p-2 transition-colors duration-200">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                class="absolute top-2 right-2 sm:top-3 sm:right-3 z-10 bg-white/90 dark:bg-gray-800/90 hover:bg-white dark:hover:bg-gray-700 rounded-full p-1.5 sm:p-2 transition-all duration-200 shadow-lg backdrop-blur-sm">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-700 dark:text-gray-200" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
+
+              {{-- Image container with improved responsive handling --}}
+              <div class="flex-1 flex items-center justify-center p-2 sm:p-4 lg:p-6 min-h-0">
+                <div class="relative w-full h-full flex items-center justify-center">
+                  <img x-bind:src="mainImage" alt="{{ $product->name }} zoomed" class="max-w-full max-h-full w-auto h-auto object-contain select-none rounded-lg shadow-lg
+                    transition-transform duration-200 hover:scale-[1.02]
+                    /* Mobile optimizations */
+                    touch-manipulation
+                    /* Ensure proper sizing on all devices */
+                    min-w-0 min-h-0" @click.stop loading="eager"
+                    style="max-width: calc(100vw - 1rem); max-height: calc(100vh - 8rem);">
+                </div>
+              </div>
+
+              {{-- Optional: Add image info footer for better UX --}}
+              <div
+                class="px-3 py-2 sm:px-4 sm:py-3 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-700">
+                <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 text-center">
+                  {{ $product->name }} • Tap outside or press ESC to close
+                </p>
+              </div>
             </div>
           </div>
-
           <!-- Simple Features Section - Realistic for small shop -->
           <div class="hidden sm:block border-t border-gray-200 dark:border-gray-700 pt-4 sm:pt-6 mt-4 sm:mt-6">
-            <h3 class="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">សេវាកម្មរបស់យើង
+            <h3 class="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">
+              សេវាកម្មរបស់យើង
             </h3>
             <div class="grid grid-cols-1 gap-2 sm:gap-3">
               <div class="flex items-center space-x-2 sm:space-x-3 text-gray-600 dark:text-gray-400">
@@ -227,7 +249,8 @@
                     d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-3 3a1 1 0 100 2h.01a1 1 0 100-2H10zm-4 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm1-4a1 1 0 100 2h.01a1 1 0 100-2H7zm2 0a1 1 0 100 2h.01a1 1 0 100-2H9zm2 0a1 1 0 100 2h.01a1 1 0 100-2H11z"
                     clip-rule="evenodd" />
                 </svg>
-                <span class="text-xs sm:text-sm">មានទទួល ជួសជុលទូរសព្ទ ដោះកូដដៃ បុកប្រូក្រាម អ៊ុតកញ្ចក់ថាច់.ល.</span>
+                <span class="text-xs sm:text-sm">មានទទួល ជួសជុលទូរសព្ទ ដោះកូដដៃ បុកប្រូក្រាម
+                  អ៊ុតកញ្ចក់ថាច់.ល.</span>
               </div>
               <div class="flex items-center space-x-2 sm:space-x-3 text-gray-600 dark:text-gray-400">
                 <svg class="w-4 h-4 sm:w-5 sm:h-5 text-purple-500 flex-shrink-0" fill="currentColor"
@@ -242,7 +265,7 @@
         </div>
 
         <!-- Product Information -->
-        <div class="space-y-4 sm:space-y-6">
+        <div class="space-y-4 sm:space-y-6 lg:col-span-5">
           <!-- Product Title & Meta -->
           <div class="space-y-3 sm:space-y-4">
             <div>
@@ -295,21 +318,21 @@
           </div>
           <!-- Product Description -->
           @if($product->description)
-        <div class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-4 max-w-none
-      [&>h1]:text-2xl [&>h1]:font-bold [&>h1]:text-gray-900 [&>h1]:dark:text-white [&>h1]:mb-4
-      [&>h2]:text-xl [&>h2]:font-semibold [&>h2]:text-gray-900 [&>h2]:dark:text-white [&>h2]:mb-3
-      [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:text-gray-900 [&>h3]:dark:text-white [&>h3]:mb-2
-      [&>p]:text-gray-700 [&>p]:dark:text-gray-300 [&>p]:mb-4
-      [&>a]:text-amber-600 [&>a]:dark:text-amber-400 [&>a]:underline [&>a]:font-medium
-      [&>strong]:text-gray-900 [&>strong]:dark:text-white [&>strong]:font-semibold
-      [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:space-y-1 [&_ul]:text-gray-700 [&_ul]:dark:text-gray-300
-      [&_ol]:list-decimal [&_ol]:ml-6 [&_ol]:space-y-1 [&_ol]:text-gray-700 [&_ol]:dark:text-gray-300
-      [&_li]:text-gray-700 [&_li]:dark:text-gray-300 [&_li]:ml-0
-      [&>blockquote]:border-l-4 [&>blockquote]:border-amber-500 [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-600 [&>blockquote]:dark:text-gray-400
-      [&>code]:bg-gray-100 [&>code]:dark:bg-gray-800 [&>code]:px-1 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:text-gray-800 [&>code]:dark:text-gray-200
-      [&_img]:max-w-full [&_img]:h-auto [&_img]:rounded-lg [&_img]:my-4">
-        {!! $product->description !!}
-        </div>
+          <div class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-4 max-w-none
+        [&>h1]:text-2xl [&>h1]:font-bold [&>h1]:text-gray-900 [&>h1]:dark:text-white [&>h1]:mb-4
+        [&>h2]:text-xl [&>h2]:font-semibold [&>h2]:text-gray-900 [&>h2]:dark:text-white [&>h2]:mb-3
+        [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:text-gray-900 [&>h3]:dark:text-white [&>h3]:mb-2
+        [&>p]:text-gray-700 [&>p]:dark:text-gray-300 [&>p]:mb-4
+        [&>a]:text-amber-600 [&>a]:dark:text-amber-400 [&>a]:underline [&>a]:font-medium
+        [&>strong]:text-gray-900 [&>strong]:dark:text-white [&>strong]:font-semibold
+        [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:space-y-1 [&_ul]:text-gray-700 [&_ul]:dark:text-gray-300
+        [&_ol]:list-decimal [&_ol]:ml-6 [&_ol]:space-y-1 [&_ol]:text-gray-700 [&_ol]:dark:text-gray-300
+        [&_li]:text-gray-700 [&_li]:dark:text-gray-300 [&_li]:ml-0
+        [&>blockquote]:border-l-4 [&>blockquote]:border-amber-500 [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-600 [&>blockquote]:dark:text-gray-400
+        [&>code]:bg-gray-100 [&>code]:dark:bg-gray-800 [&>code]:px-1 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:text-gray-800 [&>code]:dark:text-gray-200
+        [&_img]:max-w-full [&_img]:h-auto [&_img]:rounded-lg [&_img]:my-4">
+          {!! $product->description !!}
+          </div>
       @endif
           <div class="flex items-center space-x-2">
             @if($product->in_stock)
@@ -496,4 +519,22 @@
     </div>
   @endif
   </div>
+  @if (!empty($similar_products))
+
+    {{-- This new container limits the width and centers the section --}}
+    <div class="mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold text-gray-800 dark:text-white">You Might Also Like</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+      @foreach ($similar_products as $product)
+      <x-product-card :product="$product" />
+    @endforeach
+    </div>
+
+    </div>
+
+  @endif
 </div>

@@ -13,11 +13,20 @@ use Livewire\Component;
 class ProductDetailPage extends Component
 {
     public $slug;
+    public $product;
     public $quantity = 1;
-
+    public $similar_products = [];
     public function mount($slug)
     {
         $this->slug = $slug;
+
+        $this->product = Product::where('slug', $slug)->firstOrFail();
+
+        $this->similar_products = Product::where('category_id', $this->product->category_id)
+            ->where('id', '!=', $this->product->id) // Exclude the current product
+            ->inRandomOrder() // Get random products
+            ->take(4) // Limit to 4 products
+            ->get();
     }
 
     public function increaseQty()
