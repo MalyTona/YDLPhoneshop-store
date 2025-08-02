@@ -125,8 +125,12 @@
                                     } catch (Exception $e) { /* Do nothing */
                                     }
                                 @endphp
-                                <div class="company-name-khmer" style="font-size: 32px; color: #4a90e2;">យ៉ត ដាឡែន</div>
-                                <div>YDL Phone Shop</div>
+                                <div class="company-name-khmer" style="font-size: 24px; color: #4a90e2;">
+                                    ហាងលក់ទូរស័ព្ទដៃ យ៉តដាឡែន
+
+                                </div>
+                                <div class="company-name-khmer" style="font-size: 18px; color: #4a90e2;">YDL Phone Shop
+                                </div>
                             </td>
                             <td style="width: 40%;">
                                 <h2 style="margin-bottom: 20px; color: #333;"><span class="khmer-font">វិក្កយបត្រ</span>
@@ -162,7 +166,7 @@
                                 <strong class="khmer-font">ទៅ​កាន់ /</strong> <strong>Bill To:</strong><br />
 
                                 <strong>{{ $order->address->full_name }}</strong><br />
-                                <span>{{ $order->address->street_address }}</span><br />
+                                <span class="khmer-font"> {{ $order->address->street_address }}</span>
                                 <span>{{ $order->address->city }}, {{ $order->address->province }}</span><br />
 
                                 <strong class="khmer-font">ទូរស័ព្ទ /</strong> <strong>Phone:</strong>
