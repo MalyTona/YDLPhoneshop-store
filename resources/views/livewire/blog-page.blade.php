@@ -12,21 +12,30 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @forelse ($posts as $post)
                 <div wire:key="{{ $post->id }}"
-                    class="bg-white dark:bg-slate-800/50 rounded-2xl shadow-lg overflow-hidden flex flex-col">
+                    class="bg-white dark:bg-slate-800/50 rounded-2xl shadow-lg overflow-hidden flex flex-col group">
                     <a href="{{ route('post.detail', $post->slug) }}">
-                        <img class="w-full h-80 object-cover" src="{{ Storage::url($post->image) }}"
-                            alt="{{ $post->title }}">
+                        <img class="w-full h-56 object-cover group-hover:opacity-90 transition-opacity duration-300"
+                            src="{{ Storage::url($post->image) }}" alt="{{ $post->title }}">
                     </a>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h2 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">
+                        <div class="flex items-center space-x-4 text-sm text-slate-500 dark:text-slate-400 mb-3">
+                            @if($post->author)
+                                <span>By {{ $post->author->name }}</span>
+                                <span class="text-slate-300 dark:text-slate-600">|</span>
+                            @endif
+                            <span>{{ $post->created_at->format('M d, Y') }}</span>
+                        </div>
+
+                        <h2
+                            class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                             <a href="{{ route('post.detail', $post->slug) }}">{{ $post->title }}</a>
                         </h2>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 line-clamp-3">
-                            {{ strip_tags($post->content) }}
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 line-clamp-3 flex-grow">
+                            {{ Str::words(strip_tags(html_entity_decode($post->content)), 30, '...') }}
                         </p>
                         <div class="mt-auto">
                             <a href="{{ route('post.detail', $post->slug) }}"
-                                class="font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-500">
+                                class="font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-500 group-hover:underline">
                                 Read More &rarr;
                             </a>
                         </div>
